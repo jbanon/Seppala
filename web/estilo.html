@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guía de estilo · Aluminios Seppala</title>
+  <meta name="description" content="Paleta, tipografías y componentes de la web de Aluminios Seppala. Página interna de referencia para el desarrollo.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+  <link rel="stylesheet" href="/css/estilo.css?v=20261007">
+</head>
+<body>
+<!-- cabecera -->
+<a class="salto" href="#contenido">Saltar al contenido</a>
+<header class="cabecera">
+  <div class="contenedor cabecera__barra">
+    <a class="cabecera__logo" href="/" aria-label="Aluminios Seppala, inicio">
+      <img src="/img/marca/logo-seppala.png" srcset="/img/marca/logo-seppala.png 1x, /img/marca/logo-seppala-2x.png 2x" alt="Aluminios Seppala S.A." width="546" height="165">
+    </a>
+    <a class="cabecera__area" href="/area-clientes/"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Área clientes<small>Demo</small></span></a>
+    <button class="menu-boton" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="menu-boton__texto">Menú</span><span class="menu-boton__icono" aria-hidden="true"></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <ul class="nav__lista">
+        <li><a href="/productos/">Ventanas y cerramientos</a>
+          <ul class="nav__sub">
+            <li><a href="/aluminios/">Ventanas y puertas de aluminio</a></li>
+            <li><a href="/pvc/">Ventanas y puertas de PVC</a></li>
+            <li><a href="/aluminios/#fachadas">Fachadas y lucernarios</a></li>
+            <li><a href="/productos/#aluminio-o-pvc">¿Aluminio o PVC?</a></li>
+          </ul>
+        </li>
+        <li><a href="/complementos/">Complementos</a>
+          <ul class="nav__sub">
+            <li><a href="/vidrio/">Vidrio y acristalamiento</a></li>
+            <li><a href="/persianas/">Persianas y compactos</a></li>
+            <li><a href="/motorizacion/">Motorización y domótica</a></li>
+            <li><a href="/mosquiteras/">Mosquiteras</a></li>
+          </ul>
+        </li>
+        <li><a href="/asesoramiento/">Asesoramiento</a></li>
+        <li><a href="/trabajos-realizados/">Proyectos</a></li>
+        <li><a href="/empresa/">Empresa</a></li>
+        <li><a href="/contacto/">Contacto</a></li>
+      </ul>
+      <div class="nav__cta">
+        <a class="nav__tel" href="tel:+34918300543">91 830 05 43</a>
+        <a class="boton" href="/contacto/#presupuesto">Pedir presupuesto</a>
+        <a class="boton boton--linea nav__area" href="/area-clientes/">Área clientes<small>Demo</small></a>
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /cabecera -->
+<main id="contenido">
+  <section class="portadilla"><div class="contenedor">
+    <p class="sobretitulo">Referencia interna</p>
+    <h1>Guía de estilo <em>Aluminios Seppala</em></h1>
+    <p class="entradilla">Paleta derivada del logotipo (petróleo oscuro del emblema y azul del rótulo), titulares en Newsreader y texto en Figtree, componentes de la web pública y del área de clientes. Esta página no se indexa.</p>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Paleta</h2>
+    <ul class="guia-color">
+      <li><div style="background:var(--tinta)"></div><strong>Tinta · #0b2a33</strong>Titulares, fondos oscuros. Del círculo del emblema</li>
+      <li><div style="background:var(--tinta-2)"></div><strong>Tinta 2 · #06202a</strong>Pie de página</li>
+      <li><div style="background:var(--azul)"></div><strong>Azul · #2c90c3</strong>El azul del rótulo: líneas y detalles gráficos</li>
+      <li><div style="background:var(--azul-ui)"></div><strong>Azul UI · #1b6f99</strong>Botones y enlaces (contraste AA sobre blanco)</li>
+      <li><div style="background:var(--celeste)"></div><strong>Celeste · #9fcbe0</strong>Acento sobre fondos oscuros</li>
+      <li><div style="background:var(--texto)"></div><strong>Texto · #3e4f56</strong>Texto corrido</li>
+      <li><div style="background:var(--gris-medio)"></div><strong>Gris medio · #5f7076</strong>Texto auxiliar</li>
+      <li><div style="background:var(--papel-2)"></div><strong>Papel 2 · #f2f6f8</strong>Fondo alterno «aluminio»</li>
+    </ul>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Tipografía</h2>
+    <p class="t-xl">Ventanas a medida <em>desde 1990</em></p>
+    <p class="t-l" style="margin-top:1rem">Título de sección en Newsreader</p>
+    <p class="t-m" style="margin-top:1rem">Título de bloque o tarjeta</p>
+    <p class="t-s" style="margin-top:1rem">Subtítulo en Figtree semibold</p>
+    <p class="entradilla" style="margin-top:1rem">Entradilla: el aluminio y el PVC comparten obra desde hace años; lo importante es elegir bien el sistema y el vidrio para cada hueco.</p>
+    <p style="margin-top:1rem">Texto corrido en Figtree a 17 px con interlineado 1,65. <strong>Negrita en tinta</strong>, <a href="#">enlace en línea</a>. Los números se escriben con coma decimal y espacio fino antes del símbolo: 1,2 W/m²K, 44 dB.</p>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Botones y enlaces</h2>
+    <div class="botones" style="margin-top:0"><a class="boton" href="#">Pedir presupuesto</a><a class="boton boton--linea" href="#">Ver productos</a><a class="enlace" href="#">Enlace con flecha</a></div>
+    <div class="seccion--oscura" style="padding:1.5rem;margin-top:1.5rem"><div class="botones" style="margin-top:0"><a class="boton" href="#">Sobre oscuro</a><a class="boton boton--linea" href="#">Línea sobre oscuro</a><a class="boton boton--blanco" href="#">Blanco</a><a class="enlace" href="#">Enlace</a></div></div>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Cifras</h2>
+    <dl class="datos">
+      <div><dt>Experiencia</dt><dd>+25 años<small>fabricando e instalando</small></dd></div>
+      <div><dt>Materiales</dt><dd>Aluminio y PVC<small>sistemas Cortizo</small></dd></div>
+      <div><dt>Servicio</dt><dd>De principio a fin<small>diseño, fabricación e instalación</small></dd></div>
+      <div><dt>Dónde</dt><dd>Alcalá de Henares<small>Madrid</small></dd></div>
+    </dl>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Tarjeta de producto y tipologías</h2>
+    <ul class="productos productos--2">
+      <li><a class="producto" href="#"><div class="producto__media"><img src="/img/ambiente/salon-corredera-vistas-640.webp" width="1024" height="696" alt=""></div><div class="producto__cuerpo"><p class="producto__tipo">Aluminio</p><h3>Ventanas de aluminio</h3><p>Texto breve de la tarjeta, dos líneas como mucho.</p><span class="producto__mas"><span>Ver sistemas</span><span aria-hidden="true">→</span></span></div></a></li>
+      <li><a class="producto" href="#"><div class="producto__media producto__media--render"><img src="/img/renders/pvc-abisagrada-1-400.webp" width="400" height="400" alt=""></div><div class="producto__cuerpo"><p class="producto__tipo">PVC · render</p><h3>Ventana abisagrada</h3><p>Variante con render sobre fondo blanco.</p><span class="producto__mas"><span>Ver sistema</span><span aria-hidden="true">→</span></span></div></a></li>
+    </ul>
+    <ul class="tipologias" style="margin-top:2rem">
+      <li><img src="/img/renders/aluminio-abisagrada-blanco-1-400.webp" width="400" height="400" alt=""><div><h3>Abisagrada</h3><p>Practicable, oscilobatiente o abatible. La hoja gira sobre bisagras y cierra a presión sobre juntas.</p></div></li>
+      <li><img src="/img/renders/aluminio-corredera-1-400.webp" width="400" height="400" alt=""><div><h3>Corredera</h3><p>Las hojas se deslizan sobre carriles: no invaden la estancia.</p></div></li>
+    </ul>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Pasos, ventajas y preguntas</h2>
+    <ol class="pasos pasos--horizontal">
+      <li><h3>Asesoramiento</h3><p>Escuchamos qué necesitas.</p></li><li><h3>Medición</h3><p>Tomamos medidas en obra.</p></li><li><h3>Fabricación</h3><p>En nuestras instalaciones.</p></li><li><h3>Instalación</h3><p>Con equipo propio.</p></li>
+    </ol>
+    <ol class="ventajas" style="margin-top:2rem">
+      <li><div><h3>Aislamiento térmico</h3><p>Rotura de puente térmico y vidrio bajo emisivo.</p></div></li>
+      <li><div><h3>Aislamiento acústico</h3><p>Vidrios laminados acústicos de hasta 34 mm.</p></div></li>
+    </ol>
+    <div class="preguntas" style="margin-top:2rem">
+      <details><summary>¿Aluminio o PVC?</summary><div><p>Depende del hueco, del clima y del presupuesto. Te lo explicamos en la página de productos.</p></div></details>
+      <details><summary>¿Instaláis en toda la Comunidad de Madrid?</summary><div><p>Pendiente de confirmar con el cliente el ámbito de instalación.</p></div></details>
+    </div>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Tabla y comparativa</h2>
+    <table class="comparativa">
+      <thead><tr><th scope="col">Criterio</th><th scope="col">Aluminio</th><th scope="col">PVC</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Secciones</th><td data-label="Aluminio">Perfiles más esbeltos, grandes dimensiones</td><td data-label="PVC">Perfiles más anchos</td></tr>
+        <tr><th scope="row">Mantenimiento</th><td data-label="Aluminio">Mínimo</td><td data-label="PVC">Mínimo</td></tr>
+      </tbody>
+    </table>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Formulario</h2>
+    <form class="formulario" style="max-width:40rem" action="#" onsubmit="return false">
+      <fieldset class="campo"><legend>Soy</legend><div class="radios"><label><input type="radio" name="p" checked><span>Particular</span></label><label><input type="radio" name="p"><span>Profesional</span></label></div></fieldset>
+      <div class="campo--doble"><div class="campo"><label for="g-n">Nombre</label><input id="g-n" type="text"></div><div class="campo"><label for="g-t">Teléfono</label><input id="g-t" type="tel"></div></div>
+      <div class="campo"><label for="g-s">Qué te interesa <span class="opcional">(opcional)</span></label><select id="g-s"><option>No lo sé todavía</option><option>Ventanas de aluminio</option></select></div>
+      <div class="campo"><label for="g-m">Mensaje</label><textarea id="g-m"></textarea></div>
+      <label class="casilla"><input type="checkbox"><span>He leído y acepto la <a href="#">política de privacidad</a>.</span></label>
+      <div><button class="boton" type="submit">Enviar</button></div>
+    </form>
+  </div></section>
+
+  <section class="guia-bloque"><div class="contenedor">
+    <h2>Descargas, aviso y marcas</h2>
+    <ul class="descargas descargas--3">
+      <li><a class="descarga" href="#"><span class="descarga__tipo" aria-hidden="true">PDF</span><span class="descarga__texto"><strong>Ficha técnica RolaPlus</strong><span>PDF · 1,1 MB</span></span></a></li>
+      <li><a class="descarga descarga--web" href="#"><span class="descarga__tipo" aria-hidden="true">WEB</span><span class="descarga__texto"><strong>Guardian Sun</strong><span>Página oficial</span></span></a></li>
+    </ul>
+    <div class="aviso"><h3>Dato pendiente</h3><p>Así se señala en los documentos internos lo que el cliente debe confirmar. En la web pública no aparece ningún recuadro de este tipo.</p></div>
+    <ul class="marcas" role="list">
+      <li class="marca"><img src="/img/marca/partners/cortizo.svg" width="108" height="27" alt="Cortizo"><span>Perfiles</span></li>
+      <li class="marca"><img src="/img/marca/partners/guardian-glass.png" width="600" height="168" alt="Guardian Glass"><span>Vidrio</span></li>
+      <li class="marca"><img src="/img/marca/partners/climalit.png" width="600" height="178" alt="Climalit"><span>Vidrio</span></li>
+      <li class="marca"><img src="/img/marca/partners/somfy.svg" width="127" height="32" alt="Somfy"><span>Motores</span></li>
+      <li class="marca"><img src="/img/marca/partners/nice.svg" width="110" height="110" alt="Nice"><span>Motores</span></li>
+      <li class="marca"><img src="/img/marca/partners/gaviota.svg" width="200" height="60" alt="Gaviota"><span>Motores</span></li>
+    </ul>
+  </div></section>
+</main>
+<!-- pie -->
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__rejilla">
+      <div class="pie__marca">
+        <div class="pie__logo"><img src="/img/marca/logo-seppala.png" alt="Aluminios Seppala S.A." width="546" height="165" loading="lazy"></div>
+        <p>Fabricamos e instalamos ventanas, puertas y cerramientos de aluminio y PVC a medida en Alcalá de Henares (Madrid) desde hace más de 25 años. Vidrio, persianas, motorización y mosquiteras.</p>
+      </div>
+      <div>
+        <h2>Productos</h2>
+        <ul>
+          <li><a href="/aluminios/">Aluminio</a></li>
+          <li><a href="/pvc/">PVC</a></li>
+          <li><a href="/vidrio/">Vidrio</a></li>
+          <li><a href="/persianas/">Persianas</a></li>
+          <li><a href="/motorizacion/">Motorización</a></li>
+          <li><a href="/mosquiteras/">Mosquiteras</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Seppala</h2>
+        <ul>
+          <li><a href="/empresa/">Empresa</a></li>
+          <li><a href="/asesoramiento/">Asesoramiento</a></li>
+          <li><a href="/trabajos-realizados/">Proyectos</a></li>
+          <li><a href="/contacto/">Contacto y presupuesto</a></li>
+          <li><a href="/area-clientes/">Área clientes (demo)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contacto</h2>
+        <address>
+          Calle Portugal, 16<br>
+          28802 Alcalá de Henares (Madrid)<br>
+          <a href="tel:+34918300543">91 830 05 43</a>
+          <a href="mailto:administracion@aluminioseppala.com">administracion@aluminioseppala.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="pie__base">
+      <p>© Aluminios Seppala, S.A. · Carpintería de aluminio y PVC</p>
+      <ul>
+        <li><a href="/aviso-legal/">Aviso legal</a></li>
+        <li><a href="/privacidad/">Privacidad</a></li>
+        <li><a href="/cookies/">Cookies</a></li>
+        <li><button type="button" class="cookies__abrir">Cookies: cambiar decisión</button></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<nav class="barra-contacto" aria-label="Contacto rápido">
+  <a href="tel:+34918300543"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3h3l1.5 4.5-2 1.4a12 12 0 0 0 6 6l1.4-2L21 14.4v3c0 1.4-1.2 2.6-2.6 2.6C10.4 20 4 13.6 4 5.6 4 4.2 5.2 3 6.6 3Z"/></svg><span>Llamar</span></a>
+  <a href="mailto:administracion@aluminioseppala.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg><span>Escribir</span></a>
+  <a class="barra-contacto__cta" href="/contacto/#presupuesto"><span>Presupuesto</span></a>
+</nav>
+<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p class="cookies__texto"><strong>Sin cookies de seguimiento.</strong> Esta web no instala cookies propias ni de análisis. Solo si aceptas, cargaremos el mapa de Google de la página de contacto, que sí instala cookies de Google. Si rechazas, verás la dirección y un enlace para abrir el mapa aparte. Puedes cambiar de opinión desde el pie de página.</p>
+  <div class="cookies__botones">
+    <button type="button" class="boton boton--linea" data-acepta>Aceptar</button>
+    <button type="button" class="boton boton--linea" data-rechaza>Rechazar</button>
+    <a href="/cookies/">Política de cookies</a>
+  </div>
+</div>
+<script src="/js/sitio.js?v=20261007" defer></script>
+<!-- /pie -->
+</body>
+</html>
