@@ -5,3 +5,4 @@ __pycache__/
 Thumbs.db
 referencia/capturas/*.png
 referencia/capturas/movil/*.png
+recursos/video/*.mp4
