@@ -1,0 +1,23 @@
+# Aluminios Seppala — configuración para Apache (si el alojamiento final es Apache)
+ErrorDocument 404 /404.html
+Options -Indexes
+
+# Redirecciones 301 de la web antigua (WordPress) a la nueva. Ver REDIRECCIONES.md
+RedirectMatch 301 ^/automatismo/?$ /motorizacion/
+RedirectMatch 301 ^/componentes/?$ /complementos/
+RedirectMatch 301 ^/aviso-legal-politica-privacidad/?$ /privacidad/
+RedirectMatch 301 ^/politica-de-cookies/?$ /cookies/
+RedirectMatch 301 ^/mas-informacion-sobre-las-cookies/?$ /cookies/#navegadores
+RedirectMatch 301 ^/(noticias|hola-mundo|category|author|2019)(/.*)?$ /
+RedirectMatch 301 ^/(wp-admin|wp-login\.php|wp-content|wp-includes|wp-json|xmlrpc\.php|feed|comments)(/.*)?$ /
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType video/mp4 "access plus 6 months"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
