@@ -62,9 +62,33 @@
       var c = cambios(); c.envios = c.envios || {}; c.envios[tipo] = c.envios[tipo] || {};
       ids.forEach(function (id) { (c.envios[tipo][id] = c.envios[tipo][id] || []).push({ fecha: hoy(), destinatario: d.destinatario, asunto: d.asunto, enDemo: true }); });
       guardarCambios(c); return Promise.resolve(true);
+    },
+    proveedores: function () { return pedir('proveedores'); },
+    pedidosProveedores: function () { return pedir('pedidos-proveedores').then(function (l) { return l.map(conRecepciones); }); },   // futuro: GET /pedidos-proveedores
+    pedidoProveedor: function (id) { return api.pedidosProveedores().then(function (l) { return l.filter(function (p) { return p.id === id; })[0]; }); },
+    recibir: function (id, cantidades) {    // futuro: POST /pedidos-proveedores/{id}/recepcion {codigo: cantidad}
+      var c = cambios(); c.recepciones = c.recepciones || {};
+      (c.recepciones[id] = c.recepciones[id] || []).push({ fecha: hoy(), cantidades: cantidades, enDemo: true });
+      guardarCambios(c); return Promise.resolve(true);
     }
-    // La siguiente entrega de la demo añade aquí los pedidos a proveedores.
   };
+  // Suma a cada pedido las recepciones registradas en esta sesión y recalcula líneas, totales y estado
+  function conRecepciones(p) {
+    var rec = (cambios().recepciones || {})[p.id] || [];
+    var lineas = p.lineas.map(function (l) {
+      var extra = rec.reduce(function (s, r) { return s + (Number(r.cantidades[l.codigo]) || 0); }, 0);
+      var recibidas = Math.min(l.pedidas, l.recibidas + extra);
+      return Object.assign({}, l, { recibidas: recibidas, restantes: l.pedidas - recibidas });
+    });
+    var pedidas = lineas.reduce(function (s, l) { return s + l.pedidas; }, 0), recibidas = lineas.reduce(function (s, l) { return s + l.recibidas; }, 0);
+    var historial = p.historial.concat(rec.map(function (r) {
+      var uds = Object.keys(r.cantidades).reduce(function (s, k) { return s + (Number(r.cantidades[k]) || 0); }, 0);
+      return { fecha: r.fecha, texto: 'Recepción registrada desde el panel: ' + unidades(uds) + '.', enDemo: true };
+    }));
+    var estado = p.estado === 'cancelado' ? 'cancelado' : recibidas === 0 ? 'pendiente' : recibidas < pedidas ? 'parcial' : 'completado';
+    var ultima = historial.length ? historial[historial.length - 1].fecha : null;
+    return Object.assign({}, p, { lineas: lineas, historial: historial, estado: estado, unidadesPedidas: pedidas, unidadesRecibidas: recibidas, fechaRecepcion: estado === 'completado' ? ultima : null, recibidoEnDemo: rec.length > 0 });
+  }
 
   /* ---------------- utilidades ---------------- */
   function hoy() { return '2026-10-07'; }          // fecha fija de la demo, coherente con los datos
@@ -77,13 +101,16 @@
   function param(n) { return new URLSearchParams(location.search).get(n); }
   function suma(l, f) { return l.reduce(function (s, x) { return s + f(x); }, 0); }
   function unicos(l) { return l.filter(function (x, i) { return l.indexOf(x) === i; }); }
+  function unidades(n) { return n + (n === 1 ? ' unidad' : ' unidades'); }
   function normalizar(t) { return String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
 
   var ESTADOS = {
     redactado: ['Sin enviar', 'aviso'], enviado: ['Enviado', 'curso'], revision: ['En revisión', 'curso'], aceptado: ['Aceptado', 'ok'], rechazado: ['Rechazado', 'neutro'], caducado: ['Caducado', 'neutro'],
     pendiente: ['Pendiente de cobro', 'aviso'], pagada: ['Pagada', 'ok'], vencida: ['Vencida', 'alerta']
   };
-  function pastilla(estado) { var e = ESTADOS[estado] || [estado, 'neutro']; return '<span class="pastilla pastilla--' + e[1] + '">' + esc(e[0]) + '</span>'; }
+  var ESTADOS_PEDIDO = { pendiente: ['Pendiente', 'aviso'], parcial: ['Parcial', 'curso'], completado: ['Completado', 'ok'], cancelado: ['Cancelado', 'neutro'] };
+  var FAMILIAS = { perfil: 'Perfil', persiana: 'Persianas', vidrio: 'Vidrio', motorizacion: 'Motorización' };
+  function pastilla(estado, contexto) { var e = (contexto === 'pedido' ? ESTADOS_PEDIDO : ESTADOS)[estado] || [estado, 'neutro']; return '<span class="pastilla pastilla--' + e[1] + '">' + esc(e[0]) + '</span>'; }
 
   /* ---------------- marco común: franja, cabecera, navegación, pie ---------------- */
   var ICONOS = {
@@ -204,7 +231,7 @@
   var SECCIONES = [
     ['presupuestos', 'Presupuestos', 'Presupuestos de todos los clientes, con el envío por correo del PDF a cada uno y el registro de cuándo se envió.', true],
     ['facturas', 'Facturas', 'Facturas emitidas, vencimientos y envío por correo, una a una o varias del mismo cliente a la vez.', true],
-    ['pedidos-proveedores', 'Pedidos a proveedores', 'Pedidos de perfil, vidrio, persianas y motores: en curso, recepción de material e historial.', false]
+    ['pedidos-proveedores', 'Pedidos a proveedores', 'Pedidos de perfil, vidrio, persianas y motores: en curso, recepción de material e historial.', true]
   ];
   var pantallas = {
     inicio: function (u) {
@@ -315,7 +342,106 @@
     },
 
     'pedidos-proveedores': function () {
-      return enConstruccion('Pedidos a <em>proveedores</em>', 'Pedidos de material en curso, recepción e historial.', 'Esta pantalla llegará en una entrega posterior de la demo: pedidos a los proveedores de perfil, vidrio, persianas y motorización, con ficha por pedido, recepción de material e historial.');
+      return api.pedidosProveedores().then(function (todos) {
+        var PP = BASE + 'pedidos-proveedores/';
+        var lista = todos.filter(function (p) { return p.estado === 'pendiente' || p.estado === 'parcial'; }).sort(function (a, b) { return a.entregaPrevista < b.entregaPrevista ? -1 : 1; });
+        var familia = 'todas';
+        function tarjeta(p) {
+          var pct = p.unidadesPedidas ? Math.round(p.unidadesRecibidas * 100 / p.unidadesPedidas) : 0;
+          return '<li><a class="p-item" href="' + PP + 'detalle/?id=' + p.id + '">' +
+            '<div class="p-item__cab"><span class="p-item__id">' + p.id + '</span>' + pastilla(p.estado, 'pedido') + '</div>' +
+            '<div class="g-pedido__prov">' + esc(p.proveedor.nombre) + '<small>' + esc(p.proveedor.suministra) + '</small></div>' +
+            '<div class="p-item__meta"><span>' + (p.destino.tipo === 'stock' ? 'Para <b>stock de taller</b>' : 'Para <b>' + esc(p.destino.nombre) + '</b>' + (p.destino.pedidoClienteId ? ' · pedido ' + p.destino.pedidoClienteId : '')) + '</span></div>' +
+            '<div class="g-progreso' + (pct === 100 ? ' g-progreso--ok' : '') + '" role="img" aria-label="Recibidas ' + p.unidadesRecibidas + ' de ' + p.unidadesPedidas + ' unidades"><span><i style="width:' + pct + '%"></i></span><span>' + p.unidadesRecibidas + ' / ' + p.unidadesPedidas + ' uds. recibidas</span></div>' +
+            '<div class="p-item__meta"><span>Pedido el <b>' + fecha(p.fecha) + '</b></span><span>Entrega prevista <b>' + fecha(p.entregaPrevista) + '</b>' + (p.entregaPrevista < hoy() ? ' <span class="pastilla pastilla--alerta">Retrasada</span>' : '') + '</span><span><b>' + p.articulos + '</b> artículos</span></div>' +
+            '<div class="p-item__pie"><span>' + esc(FAMILIAS[p.proveedor.familia]) + '</span><span class="tarjeta__mas" style="min-height:0">Ver y recibir material</span></div></a></li>';
+        }
+        function pintaLista() {
+          var l = lista.filter(function (p) { return familia === 'todas' || p.proveedor.familia === familia; });
+          m.querySelector('#lista').innerHTML = l.map(tarjeta).join('') || '<li class="p-vacio">No hay pedidos en curso de esta familia.</li>';
+        }
+        var cuenta = function (f) { return lista.filter(function (p) { return p.proveedor.familia === f; }).length; };
+        var f = filtros([['todas', 'Todos (' + lista.length + ')']].concat(Object.keys(FAMILIAS).map(function (k) { return [k, FAMILIAS[k] + ' (' + cuenta(k) + ')']; })), function (v) { familia = v; pintaLista(); });
+        var parciales = lista.filter(function (p) { return p.estado === 'parcial'; }).length;
+        var m = pintar(titulo('Pedidos a <em>proveedores</em>', 'Pedidos de material en curso, ordenados por fecha de entrega prevista. Entra en un pedido para registrar la recepción del material.', '<a class="p-boton" href="' + PP + 'historial/">Historial</a>') +
+          '<div class="p-aviso p-aviso--info" role="note"><span><strong>' + lista.length + ' pedidos en curso</strong>' + (parciales ? ', ' + parciales + ' con recepción parcial' : '') + '. Los completados y cancelados están en el historial.</span></div>' +
+          '<div class="g-herramientas">' + f.html + '</div><ul class="g-pedidos" id="lista"></ul>' +
+          '<p class="p-propuesta">en el panel real, el pedido se generaría desde las necesidades de material de los presupuestos aceptados y se enviaría al proveedor por correo o por su portal, con el albarán del proveedor adjunto a cada recepción.</p>');
+        f.activar(m); pintaLista();
+      });
+    },
+
+    'pedidos-proveedores/historial': function () {
+      return api.pedidosProveedores().then(function (todos) {
+        var PP = BASE + 'pedidos-proveedores/';
+        var lista = todos.filter(function (p) { return p.estado === 'completado' || p.estado === 'cancelado'; });
+        var estado = 'todos', prov = 'todos';
+        var proveedores = unicos(lista.map(function (p) { return p.proveedor.codigo; })).map(function (c) { return lista.filter(function (p) { return p.proveedor.codigo === c; })[0].proveedor; });
+        function fila(p) {
+          return '<tr><td class="g-id">' + p.id + '</td><td class="g-fecha" data-label="Fecha">' + fecha(p.fecha) + '</td>' +
+            '<td class="g-ancho" data-label="Proveedor y destino"><b>' + esc(p.proveedor.nombre) + '</b><small>' + esc(p.destino.nombre) + (p.destino.pedidoClienteId ? ' · pedido ' + p.destino.pedidoClienteId : '') + '</small></td>' +
+            '<td class="g-num" data-label="Artículos"><b>' + p.articulos + '</b><small>' + p.unidadesRecibidas + ' / ' + p.unidadesPedidas + ' uds.</small></td>' +
+            '<td class="g-fecha" data-label="' + (p.estado === 'cancelado' ? 'Cancelado el' : 'Recibido el') + '">' + fecha(p.historial[p.historial.length - 1].fecha) + '</td>' +
+            '<td class="g-estado">' + pastilla(p.estado, 'pedido') + '</td><td class="g-accion"><a class="p-boton" href="' + PP + 'detalle/?id=' + p.id + '">Ver<span class="solo-lectores"> el pedido ' + p.id + '</span></a></td></tr>';
+        }
+        function pintaLista() {
+          var l = lista.filter(function (p) { return (estado === 'todos' || p.estado === estado) && (prov === 'todos' || p.proveedor.codigo === prov); });
+          m.querySelector('#lista').innerHTML = tabla([['Nº'], ['Fecha'], ['Proveedor y destino'], ['Artículos', 'g-num'], ['Recibido / cancelado'], ['Estado'], ['']], l.map(fila), 'No hay pedidos con ese filtro.');
+        }
+        var f = filtros([['todos', 'Todos (' + lista.length + ')'], ['completado', 'Completados'], ['cancelado', 'Cancelados']], function (v) { estado = v; pintaLista(); });
+        var m = pintar(titulo('Historial de <em>pedidos</em>', 'Pedidos a proveedores ya completados o cancelados.', '', [PP, 'Pedidos en curso']) +
+          '<div class="g-herramientas">' + f.html + '<label class="g-select"><span class="solo-lectores">Filtrar por proveedor</span><select id="prov"><option value="todos">Todos los proveedores</option>' +
+          proveedores.map(function (x) { return '<option value="' + x.codigo + '">' + esc(x.nombre) + '</option>'; }).join('') + '</select></label></div><div id="lista"></div>');
+        f.activar(m);
+        m.querySelector('#prov').addEventListener('change', function (e) { prov = e.target.value; pintaLista(); });
+        pintaLista();
+      });
+    },
+
+    'pedidos-proveedores/detalle': function () {
+      var PP = BASE + 'pedidos-proveedores/';
+      function pintaPedido(p, recienRecibido) {
+        var abierto = p.estado === 'pendiente' || p.estado === 'parcial';
+        var m = pintar(titulo('Pedido <em>' + p.id + '</em>', esc(p.proveedor.nombre) + ' · ' + esc(p.destino.nombre), pastilla(p.estado, 'pedido'), [PP, 'Pedidos a proveedores']) +
+          '<div id="aviso">' + (recienRecibido ? '<div class="p-aviso" role="status">Recepción registrada: ' + unidades(recienRecibido) + '. ' + (p.estado === 'completado' ? 'El pedido queda <strong>completado</strong>.' : 'El pedido queda en <strong>recepción parcial</strong>.') + ' <span>Demo: solo se guarda en esta sesión.</span></div>' : '') + '</div>' +
+          '<div class="p-rejilla p-rejilla--detalle"><div><div class="p-panel"><h2>Artículos (' + p.articulos + ') · ' + p.unidadesRecibidas + ' de ' + p.unidadesPedidas + ' unidades recibidas</h2>' +
+          '<form id="f-recepcion" novalidate><div class="g-lineas">' +
+          tabla([['Código'], ['Descripción'], ['Pedidas', 'g-num'], ['Recibidas', 'g-num'], ['Restantes', 'g-num']].concat(abierto ? [['Recibir ahora']] : []), p.lineas.map(function (l) {
+            return '<tr><td class="g-id">' + esc(l.codigo) + '</td><td class="g-ancho">' + esc(l.descripcion) + '<small>' + esc(l.unidad) + '</small></td>' +
+              '<td class="g-num" data-label="Pedidas"><b>' + l.pedidas + '</b></td><td class="g-num" data-label="Recibidas"><b>' + l.recibidas + '</b></td><td class="g-num g-restan" data-label="Restantes"><b>' + l.restantes + '</b></td>' +
+              (abierto ? '<td class="g-accion" data-label="Recibir ahora"><input class="g-cant" type="number" inputmode="numeric" min="0" max="' + l.restantes + '" value="0" name="' + esc(l.codigo) + '" aria-label="Recibir ahora de ' + esc(l.codigo) + '"' + (l.restantes ? '' : ' disabled') + '></td>' : '') + '</tr>';
+          }), '') + '</div>' +
+          (abierto ? '<div class="p-acciones" style="margin-top:1.25rem"><button class="p-boton p-boton--primario" type="submit">Confirmar recepción</button><button class="p-boton" type="button" id="todo">Rellenar pedido completo</button></div>' +
+            '<p class="formulario__nota" id="nota">Indica cuántas unidades de cada artículo han llegado y confirma. Demo: la recepción se registra solo en esta sesión; en el panel real quedaría el albarán del proveedor adjunto.</p>' :
+            '<p class="formulario__nota" style="margin-top:1rem">' + (p.estado === 'cancelado' ? 'Pedido cancelado: no se espera material.' : 'Pedido completado el ' + fecha(p.fechaRecepcion) + '.') + '</p>') +
+          '</form></div></div>' +
+          '<aside><div class="p-panel"><h2>Datos del pedido</h2><dl class="p-datos">' +
+          '<div><dt>Proveedor</dt><dd>' + esc(p.proveedor.nombre) + '</dd></div><div><dt>Suministra</dt><dd>' + esc(p.proveedor.suministra) + '</dd></div>' +
+          '<div><dt>Fecha de pedido</dt><dd>' + fecha(p.fecha) + '</dd></div><div><dt>Entrega prevista</dt><dd>' + fecha(p.entregaPrevista) + '</dd></div>' +
+          '<div><dt>Destino</dt><dd>' + esc(p.destino.nombre) + '</dd></div>' +
+          (p.destino.pedidoClienteId ? '<div><dt>Pedido de cliente</dt><dd>' + esc(p.destino.pedidoClienteId) + '</dd></div>' : '') + (p.destino.presupuestoId ? '<div><dt>Presupuesto</dt><dd>' + esc(p.destino.presupuestoId) + '</dd></div>' : '') +
+          '<div><dt>Ref. del proveedor</dt><dd>' + (p.referenciaProveedor ? esc(p.referenciaProveedor) : '—') + '</dd></div>' +
+          '<div class="total"><dt>Recibido</dt><dd>' + p.unidadesRecibidas + ' / ' + p.unidadesPedidas + ' uds.</dd></div></dl></div>' +
+          '<div class="p-panel"><h2>Historial</h2><ol class="p-historial">' + p.historial.map(function (h) { return '<li><time datetime="' + h.fecha + '">' + fecha(h.fecha) + '</time>' + esc(h.texto) + '</li>'; }).join('') + '</ol></div></aside></div>');
+        var f = m.querySelector('#f-recepcion'), todo = m.querySelector('#todo');
+        if (todo) todo.addEventListener('click', function () { f.querySelectorAll('.g-cant:not(:disabled)').forEach(function (i) { i.value = i.max; }); });
+        f.addEventListener('submit', function (e) {
+          e.preventDefault(); if (!abierto) return;
+          var cant = {}, total = 0, mal = false;
+          f.querySelectorAll('.g-cant:not(:disabled)').forEach(function (i) {
+            var n = Math.floor(Number(i.value) || 0); if (n < 0 || n > Number(i.max)) mal = true;
+            if (n > 0) { cant[i.name] = n; total += n; }
+          });
+          var nota = m.querySelector('#nota');
+          if (mal) { nota.textContent = 'Revisa las cantidades: no pueden ser negativas ni superar las restantes de cada artículo.'; return; }
+          if (!total) { nota.textContent = 'Indica al menos una unidad recibida (o pulsa «Rellenar pedido completo»).'; return; }
+          api.recibir(p.id, cant).then(function () { return api.pedidoProveedor(p.id); }).then(function (nuevo) { pintaPedido(nuevo, total); window.scrollTo(0, 0); });
+        });
+      }
+      return api.pedidoProveedor(param('id')).then(function (p) {
+        if (!p) { pintar(titulo('No encontrado', 'No existe ese pedido en los datos de la demo.') + '<a class="p-boton" href="' + PP + '">Volver a los pedidos</a>'); return; }
+        pintaPedido(p, 0);
+      });
     }
   };
 

@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "codigo": "cortizo",
+   "nombre": "Cortizo",
+   "suministra": "Perfiles de aluminio y PVC, herrajes y accesorios",
+   "familia": "perfil"
+  },
+  {
+   "codigo": "kommerling",
+   "nombre": "Kömmerling",
+   "suministra": "Cajones de persiana RolaPlus",
+   "familia": "persiana"
+  },
+  {
+   "codigo": "guardian",
+   "nombre": "Guardian Glass",
+   "suministra": "Vidrio (Guardian Sun, ClimaGuard)",
+   "familia": "vidrio"
+  },
+  {
+   "codigo": "saint-gobain",
+   "nombre": "Saint-Gobain Glass",
+   "suministra": "Vidrio (Climalit)",
+   "familia": "vidrio"
+  },
+  {
+   "codigo": "somfy",
+   "nombre": "Somfy",
+   "suministra": "Motores y mandos para persianas",
+   "familia": "motorizacion"
+  },
+  {
+   "codigo": "nice",
+   "nombre": "Nice",
+   "suministra": "Motores y mandos para persianas",
+   "familia": "motorizacion"
+  },
+  {
+   "codigo": "gaviota",
+   "nombre": "Gaviota",
+   "suministra": "Motores para persianas y cierres enrollables",
+   "familia": "motorizacion"
+  }
+ ]
+}

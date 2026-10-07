@@ -127,12 +127,93 @@ FACTURAS = sorted(DEL_AREA_F + [
 ], key=lambda f: f["id"], reverse=True)
 
 
+# ---------------- Pedidos a proveedores ----------------
+# Proveedores: las marcas que la investigación confirma que trabaja Seppala (INVESTIGACION.md §5). Sin proveedor de
+# mosquiteras ni de lamas de persiana porque no consta ninguno confirmado (Persycom está pendiente, pregunta 2.4).
+PROVEEDORES = {x["codigo"]: x for x in [
+    {"codigo": "cortizo", "nombre": "Cortizo", "suministra": "Perfiles de aluminio y PVC, herrajes y accesorios", "familia": "perfil"},
+    {"codigo": "kommerling", "nombre": "Kömmerling", "suministra": "Cajones de persiana RolaPlus", "familia": "persiana"},
+    {"codigo": "guardian", "nombre": "Guardian Glass", "suministra": "Vidrio (Guardian Sun, ClimaGuard)", "familia": "vidrio"},
+    {"codigo": "saint-gobain", "nombre": "Saint-Gobain Glass", "suministra": "Vidrio (Climalit)", "familia": "vidrio"},
+    {"codigo": "somfy", "nombre": "Somfy", "suministra": "Motores y mandos para persianas", "familia": "motorizacion"},
+    {"codigo": "nice", "nombre": "Nice", "suministra": "Motores y mandos para persianas", "familia": "motorizacion"},
+    {"codigo": "gaviota", "nombre": "Gaviota", "suministra": "Motores para persianas y cierres enrollables", "familia": "motorizacion"},
+]}
+A_OBRAS = area_clientes.OBRAS
+DESTINOS = {  # a qué obra (de la demo del área de clientes) o a stock va cada pedido
+    "chalet": {"tipo": "obra", "nombre": A_OBRAS["chalet"]["nombre"], "pedidoClienteId": "PE-2026-0587"},
+    "oficinas": {"tipo": "obra", "nombre": A_OBRAS["oficinas"]["nombre"], "pedidoClienteId": "PE-2026-0561"},
+    "reforma": {"tipo": "obra", "nombre": A_OBRAS["reforma"]["nombre"], "pedidoClienteId": "PE-2026-0534"},
+    "local": {"tipo": "obra", "nombre": A_OBRAS["local"]["nombre"], "pedidoClienteId": None, "presupuestoId": "PR-2026-0405"},
+    "stock": {"tipo": "stock", "nombre": "Stock de taller", "pedidoClienteId": None},
+}
+# Artículos con código interno ficticio y descripción genérica (sin referencias reales de ningún fabricante)
+def art(codigo, descripcion, unidad, pedidas, recibidas=0):
+    return {"codigo": codigo, "descripcion": descripcion, "unidad": unidad, "pedidas": pedidas, "recibidas": recibidas}
+
+
+def pedido_proveedor(id_, fecha, proveedor, destino, prevista, estado, lineas, historial, ref_proveedor=None):
+    """`estado`: pendiente (nada recibido) · parcial · completado · cancelado. Coherente con las cantidades recibidas de las líneas;
+    el panel lo recalcula con las recepciones registradas en la sesión de demo."""
+    return {"id": id_, "fecha": fecha, "proveedor": PROVEEDORES[proveedor], "destino": DESTINOS[destino], "entregaPrevista": prevista, "estado": estado,
+            "referenciaProveedor": ref_proveedor, "lineas": lineas, "articulos": len(lineas), "unidadesPedidas": sum(l["pedidas"] for l in lineas),
+            "unidadesRecibidas": sum(l["recibidas"] for l in lineas), "historial": [{"fecha": f, "texto": t} for f, t in historial]}
+
+
+GRIS7016 = "gris antracita RAL 7016"
+PEDIDOS_PROVEEDORES = [
+    pedido_proveedor("PP-2026-0231", "2026-10-06", "cortizo", "stock", "2026-10-14", "pendiente", [
+        art("PF-0101", "Perfil marco corredera RPT, blanco, barra de 6,5 m", "barras", 24), art("PF-0102", "Perfil hoja corredera RPT, blanco, barra de 6,5 m", "barras", 24),
+        art("PF-0201", "Perfil marco abisagrado RPT, blanco, barra de 6,5 m", "barras", 30), art("PF-0202", "Perfil hoja abisagrada RPT, blanco, barra de 6,5 m", "barras", 30),
+        art("HE-0310", "Herraje oscilobatiente, juego completo", "uds", 40), art("AC-0405", "Junta de estanqueidad EPDM, rollo de 100 m", "rollos", 6)],
+        [("2026-10-06", "Pedido enviado al proveedor (reposición de stock de perfil blanco).")]),
+    pedido_proveedor("PP-2026-0230", "2026-10-05", "somfy", "chalet", "2026-10-16", "pendiente", [
+        art("MO-0510", "Motor tubular para persiana con receptor de radio, 10 Nm", "uds", 5), art("MA-0520", "Mando a distancia de 5 canales", "uds", 1)],
+        [("2026-10-05", "Pedido enviado al proveedor."), ("2026-10-06", "Confirmado por el proveedor: entrega prevista el 16/10.")], "SOM-DEMO-4471"),
+    pedido_proveedor("PP-2026-0229", "2026-10-02", "guardian", "chalet", "2026-10-09", "parcial", [
+        art("VI-0601", "Doble acristalamiento 4+4/16/6 control solar, 3200 × 2300 mm (2 hojas de corredera)", "uds", 2, 2),
+        art("VI-0602", "Doble acristalamiento 4/16/4 bajo emisivo, 800 × 1100 mm", "uds", 5, 5),
+        art("VI-0603", "Doble acristalamiento 4+4/16/6 control solar, 600 × 2200 mm (fijos de escalera)", "uds", 2, 0)],
+        [("2026-10-02", "Pedido enviado al proveedor."), ("2026-10-06", "Recepción parcial: 7 de 9 unidades. Faltan los dos fijos de escalera, reprogramados para el 09/10.")], "GG-DEMO-20931"),
+    pedido_proveedor("PP-2026-0228", "2026-10-01", "kommerling", "chalet", "2026-10-15", "pendiente", [
+        art("CP-0701", "Cajón de persiana RolaPlus con lama de seguridad autoblocante, 800 mm, preparado para motor", "uds", 5),
+        art("CP-0702", "Guías y accesorios de cajón, juego", "uds", 5)],
+        [("2026-10-01", "Pedido enviado al proveedor."), ("2026-10-02", "Confirmado: fabricación a medida, entrega prevista el 15/10.")], "KOM-DEMO-8812"),
+    pedido_proveedor("PP-2026-0226", "2026-09-24", "cortizo", "chalet", "2026-10-01", "completado", [
+        art("PF-0101", f"Perfil marco corredera RPT, {GRIS7016}, barra de 6,5 m", "barras", 4, 4), art("PF-0102", f"Perfil hoja corredera RPT, {GRIS7016}, barra de 6,5 m", "barras", 4, 4),
+        art("PF-0201", f"Perfil marco abisagrado RPT, {GRIS7016}, barra de 6,5 m", "barras", 8, 8), art("PF-0202", f"Perfil hoja abisagrada RPT, {GRIS7016}, barra de 6,5 m", "barras", 6, 6),
+        art("HE-0310", "Herraje oscilobatiente, juego completo", "uds", 5, 5)],
+        [("2026-09-24", "Pedido enviado al proveedor."), ("2026-09-25", "Confirmado por el proveedor."), ("2026-09-30", "Recibido completo. Material pasado a fabricación.")]),
+    pedido_proveedor("PP-2026-0221", "2026-09-12", "gaviota", "local", "2026-09-26", "cancelado", [
+        art("MO-0530", "Motor para cierre enrollable de alta seguridad, con electrofreno", "uds", 1)],
+        [("2026-09-12", "Pedido enviado al proveedor."), ("2026-09-19", "Pedido anulado: el presupuesto PR-2026-0405 sigue pendiente de aceptación por el cliente.")]),
+    pedido_proveedor("PP-2026-0219", "2026-09-08", "saint-gobain", "oficinas", "2026-09-19", "completado", [
+        art("VI-0610", "Doble acristalamiento 6/16/4+4 control solar, 1200 × 3000 mm (muro cortina)", "uds", 18, 18),
+        art("VI-0611", "Doble acristalamiento 6/16/4+4 control solar, 1200 × 600 mm (proyectantes)", "uds", 6, 6)],
+        [("2026-09-08", "Pedido enviado al proveedor."), ("2026-09-19", "Recibido completo en obra.")], "SGG-DEMO-1172"),
+    pedido_proveedor("PP-2026-0214", "2026-08-27", "cortizo", "oficinas", "2026-09-05", "completado", [
+        art("MC-0801", "Montante de muro cortina, negro RAL 9005, barra de 6,5 m", "barras", 24, 24), art("MC-0802", "Travesaño de muro cortina, negro RAL 9005, barra de 6,5 m", "barras", 30, 30),
+        art("MC-0803", "Tapeta exterior de muro cortina, negro RAL 9005, barra de 6,5 m", "barras", 54, 54), art("MC-0804", "Presor y junta de muro cortina, barra de 6,5 m", "barras", 54, 54),
+        art("PF-0301", "Perfil marco proyectante RPT, negro RAL 9005, barra de 6,5 m", "barras", 4, 4), art("PF-0302", "Perfil hoja proyectante RPT, negro RAL 9005, barra de 6,5 m", "barras", 4, 4),
+        art("HE-0320", "Herraje proyectante con compás, juego", "uds", 6, 6)],
+        [("2026-08-27", "Pedido enviado al proveedor."), ("2026-08-28", "Confirmado por el proveedor."), ("2026-09-05", "Recibido completo.")]),
+    pedido_proveedor("PP-2026-0207", "2026-08-18", "nice", "stock", "2026-08-26", "completado", [
+        art("MO-0540", "Motor tubular con receptor de radio, 20 Nm", "uds", 4, 4), art("MA-0541", "Mando a distancia de 1 canal", "uds", 4, 4)],
+        [("2026-08-18", "Pedido enviado al proveedor (stock de motores para posventa)."), ("2026-08-26", "Recibido completo.")]),
+    pedido_proveedor("PP-2026-0188", "2026-07-01", "kommerling", "reforma", "2026-07-10", "completado", [
+        art("CP-0701", "Cajón de persiana RolaPlus con lama térmica, 1400 mm, preparado para motor", "uds", 4, 4),
+        art("CP-0703", "Cajón de persiana RolaPlus con lama térmica, 900 mm, accionamiento por cinta", "uds", 2, 2)],
+        [("2026-07-01", "Pedido enviado al proveedor."), ("2026-07-08", "Recibido completo.")], "KOM-DEMO-8120"),
+]
+
+
 def main():
     D.mkdir(parents=True, exist_ok=True)
-    for nombre, datos in [("usuario", USUARIO), ("presupuestos", PRESUPUESTOS), ("facturas", FACTURAS)]:
+    for nombre, datos in [("usuario", USUARIO), ("presupuestos", PRESUPUESTOS), ("facturas", FACTURAS),
+                          ("proveedores", list(PROVEEDORES.values())), ("pedidos-proveedores", PEDIDOS_PROVEEDORES)]:
         cuerpo = {"meta": {"demo": True, "aviso": "Datos ficticios", "generado": HOY}, "datos": datos}
         (D / f"{nombre}.json").write_text(json.dumps(cuerpo, ensure_ascii=False, indent=1), encoding="utf-8")
-    print("datos de la demo de gestión generados en", D, "·", len(PRESUPUESTOS), "presupuestos,", len(FACTURAS), "facturas,", len(CLIENTES), "clientes")
+    print("datos de la demo de gestión generados en", D, "·", len(PRESUPUESTOS), "presupuestos,", len(FACTURAS), "facturas,", len(CLIENTES), "clientes,", len(PEDIDOS_PROVEEDORES), "pedidos a", len(PROVEEDORES), "proveedores")
 
 
 if __name__ == "__main__":

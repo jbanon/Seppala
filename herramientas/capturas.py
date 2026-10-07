@@ -14,7 +14,7 @@ from playwright.sync_api import sync_playwright
 RAIZ = Path(__file__).resolve().parent.parent
 WEB, SALIDA = RAIZ / "web", RAIZ / "referencia" / "capturas"
 ANCHOS = {"movil": (390, 844), "escritorio": (1440, 900)}
-DETALLE = {"presupuestos": "PR-2026-0412", "pedidos": "PE-2026-0587", "incidencias": "IN-2026-0044"}  # ids de la demo
+DETALLE = {"presupuestos": "PR-2026-0412", "pedidos": "PE-2026-0587", "incidencias": "IN-2026-0044", "pedidos-proveedores": "PP-2026-0229"}  # ids de las demos
 DEMOS = {"/area-clientes/": "seppala-demo-sesion", "/gestion/": "seppala-gestion-sesion"}  # demos con acceso simulado: clave de sesión
 
 

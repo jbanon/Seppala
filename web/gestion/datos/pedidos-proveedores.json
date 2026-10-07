@@ -1,0 +1,568 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "PP-2026-0231",
+   "fecha": "2026-10-06",
+   "proveedor": {
+    "codigo": "cortizo",
+    "nombre": "Cortizo",
+    "suministra": "Perfiles de aluminio y PVC, herrajes y accesorios",
+    "familia": "perfil"
+   },
+   "destino": {
+    "tipo": "stock",
+    "nombre": "Stock de taller",
+    "pedidoClienteId": null
+   },
+   "entregaPrevista": "2026-10-14",
+   "estado": "pendiente",
+   "referenciaProveedor": null,
+   "lineas": [
+    {
+     "codigo": "PF-0101",
+     "descripcion": "Perfil marco corredera RPT, blanco, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 24,
+     "recibidas": 0
+    },
+    {
+     "codigo": "PF-0102",
+     "descripcion": "Perfil hoja corredera RPT, blanco, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 24,
+     "recibidas": 0
+    },
+    {
+     "codigo": "PF-0201",
+     "descripcion": "Perfil marco abisagrado RPT, blanco, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 30,
+     "recibidas": 0
+    },
+    {
+     "codigo": "PF-0202",
+     "descripcion": "Perfil hoja abisagrada RPT, blanco, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 30,
+     "recibidas": 0
+    },
+    {
+     "codigo": "HE-0310",
+     "descripcion": "Herraje oscilobatiente, juego completo",
+     "unidad": "uds",
+     "pedidas": 40,
+     "recibidas": 0
+    },
+    {
+     "codigo": "AC-0405",
+     "descripcion": "Junta de estanqueidad EPDM, rollo de 100 m",
+     "unidad": "rollos",
+     "pedidas": 6,
+     "recibidas": 0
+    }
+   ],
+   "articulos": 6,
+   "unidadesPedidas": 154,
+   "unidadesRecibidas": 0,
+   "historial": [
+    {
+     "fecha": "2026-10-06",
+     "texto": "Pedido enviado al proveedor (reposición de stock de perfil blanco)."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0230",
+   "fecha": "2026-10-05",
+   "proveedor": {
+    "codigo": "somfy",
+    "nombre": "Somfy",
+    "suministra": "Motores y mandos para persianas",
+    "familia": "motorizacion"
+   },
+   "destino": {
+    "tipo": "obra",
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "pedidoClienteId": "PE-2026-0587"
+   },
+   "entregaPrevista": "2026-10-16",
+   "estado": "pendiente",
+   "referenciaProveedor": "SOM-DEMO-4471",
+   "lineas": [
+    {
+     "codigo": "MO-0510",
+     "descripcion": "Motor tubular para persiana con receptor de radio, 10 Nm",
+     "unidad": "uds",
+     "pedidas": 5,
+     "recibidas": 0
+    },
+    {
+     "codigo": "MA-0520",
+     "descripcion": "Mando a distancia de 5 canales",
+     "unidad": "uds",
+     "pedidas": 1,
+     "recibidas": 0
+    }
+   ],
+   "articulos": 2,
+   "unidadesPedidas": 6,
+   "unidadesRecibidas": 0,
+   "historial": [
+    {
+     "fecha": "2026-10-05",
+     "texto": "Pedido enviado al proveedor."
+    },
+    {
+     "fecha": "2026-10-06",
+     "texto": "Confirmado por el proveedor: entrega prevista el 16/10."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0229",
+   "fecha": "2026-10-02",
+   "proveedor": {
+    "codigo": "guardian",
+    "nombre": "Guardian Glass",
+    "suministra": "Vidrio (Guardian Sun, ClimaGuard)",
+    "familia": "vidrio"
+   },
+   "destino": {
+    "tipo": "obra",
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "pedidoClienteId": "PE-2026-0587"
+   },
+   "entregaPrevista": "2026-10-09",
+   "estado": "parcial",
+   "referenciaProveedor": "GG-DEMO-20931",
+   "lineas": [
+    {
+     "codigo": "VI-0601",
+     "descripcion": "Doble acristalamiento 4+4/16/6 control solar, 3200 × 2300 mm (2 hojas de corredera)",
+     "unidad": "uds",
+     "pedidas": 2,
+     "recibidas": 2
+    },
+    {
+     "codigo": "VI-0602",
+     "descripcion": "Doble acristalamiento 4/16/4 bajo emisivo, 800 × 1100 mm",
+     "unidad": "uds",
+     "pedidas": 5,
+     "recibidas": 5
+    },
+    {
+     "codigo": "VI-0603",
+     "descripcion": "Doble acristalamiento 4+4/16/6 control solar, 600 × 2200 mm (fijos de escalera)",
+     "unidad": "uds",
+     "pedidas": 2,
+     "recibidas": 0
+    }
+   ],
+   "articulos": 3,
+   "unidadesPedidas": 9,
+   "unidadesRecibidas": 7,
+   "historial": [
+    {
+     "fecha": "2026-10-02",
+     "texto": "Pedido enviado al proveedor."
+    },
+    {
+     "fecha": "2026-10-06",
+     "texto": "Recepción parcial: 7 de 9 unidades. Faltan los dos fijos de escalera, reprogramados para el 09/10."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0228",
+   "fecha": "2026-10-01",
+   "proveedor": {
+    "codigo": "kommerling",
+    "nombre": "Kömmerling",
+    "suministra": "Cajones de persiana RolaPlus",
+    "familia": "persiana"
+   },
+   "destino": {
+    "tipo": "obra",
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "pedidoClienteId": "PE-2026-0587"
+   },
+   "entregaPrevista": "2026-10-15",
+   "estado": "pendiente",
+   "referenciaProveedor": "KOM-DEMO-8812",
+   "lineas": [
+    {
+     "codigo": "CP-0701",
+     "descripcion": "Cajón de persiana RolaPlus con lama de seguridad autoblocante, 800 mm, preparado para motor",
+     "unidad": "uds",
+     "pedidas": 5,
+     "recibidas": 0
+    },
+    {
+     "codigo": "CP-0702",
+     "descripcion": "Guías y accesorios de cajón, juego",
+     "unidad": "uds",
+     "pedidas": 5,
+     "recibidas": 0
+    }
+   ],
+   "articulos": 2,
+   "unidadesPedidas": 10,
+   "unidadesRecibidas": 0,
+   "historial": [
+    {
+     "fecha": "2026-10-01",
+     "texto": "Pedido enviado al proveedor."
+    },
+    {
+     "fecha": "2026-10-02",
+     "texto": "Confirmado: fabricación a medida, entrega prevista el 15/10."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0226",
+   "fecha": "2026-09-24",
+   "proveedor": {
+    "codigo": "cortizo",
+    "nombre": "Cortizo",
+    "suministra": "Perfiles de aluminio y PVC, herrajes y accesorios",
+    "familia": "perfil"
+   },
+   "destino": {
+    "tipo": "obra",
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "pedidoClienteId": "PE-2026-0587"
+   },
+   "entregaPrevista": "2026-10-01",
+   "estado": "completado",
+   "referenciaProveedor": null,
+   "lineas": [
+    {
+     "codigo": "PF-0101",
+     "descripcion": "Perfil marco corredera RPT, gris antracita RAL 7016, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 4,
+     "recibidas": 4
+    },
+    {
+     "codigo": "PF-0102",
+     "descripcion": "Perfil hoja corredera RPT, gris antracita RAL 7016, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 4,
+     "recibidas": 4
+    },
+    {
+     "codigo": "PF-0201",
+     "descripcion": "Perfil marco abisagrado RPT, gris antracita RAL 7016, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 8,
+     "recibidas": 8
+    },
+    {
+     "codigo": "PF-0202",
+     "descripcion": "Perfil hoja abisagrada RPT, gris antracita RAL 7016, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 6,
+     "recibidas": 6
+    },
+    {
+     "codigo": "HE-0310",
+     "descripcion": "Herraje oscilobatiente, juego completo",
+     "unidad": "uds",
+     "pedidas": 5,
+     "recibidas": 5
+    }
+   ],
+   "articulos": 5,
+   "unidadesPedidas": 27,
+   "unidadesRecibidas": 27,
+   "historial": [
+    {
+     "fecha": "2026-09-24",
+     "texto": "Pedido enviado al proveedor."
+    },
+    {
+     "fecha": "2026-09-25",
+     "texto": "Confirmado por el proveedor."
+    },
+    {
+     "fecha": "2026-09-30",
+     "texto": "Recibido completo. Material pasado a fabricación."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0221",
+   "fecha": "2026-09-12",
+   "proveedor": {
+    "codigo": "gaviota",
+    "nombre": "Gaviota",
+    "suministra": "Motores para persianas y cierres enrollables",
+    "familia": "motorizacion"
+   },
+   "destino": {
+    "tipo": "obra",
+    "nombre": "Local comercial Avenida de Ejemplo (obra ficticia)",
+    "pedidoClienteId": null,
+    "presupuestoId": "PR-2026-0405"
+   },
+   "entregaPrevista": "2026-09-26",
+   "estado": "cancelado",
+   "referenciaProveedor": null,
+   "lineas": [
+    {
+     "codigo": "MO-0530",
+     "descripcion": "Motor para cierre enrollable de alta seguridad, con electrofreno",
+     "unidad": "uds",
+     "pedidas": 1,
+     "recibidas": 0
+    }
+   ],
+   "articulos": 1,
+   "unidadesPedidas": 1,
+   "unidadesRecibidas": 0,
+   "historial": [
+    {
+     "fecha": "2026-09-12",
+     "texto": "Pedido enviado al proveedor."
+    },
+    {
+     "fecha": "2026-09-19",
+     "texto": "Pedido anulado: el presupuesto PR-2026-0405 sigue pendiente de aceptación por el cliente."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0219",
+   "fecha": "2026-09-08",
+   "proveedor": {
+    "codigo": "saint-gobain",
+    "nombre": "Saint-Gobain Glass",
+    "suministra": "Vidrio (Climalit)",
+    "familia": "vidrio"
+   },
+   "destino": {
+    "tipo": "obra",
+    "nombre": "Oficinas Nave Imaginaria (obra ficticia)",
+    "pedidoClienteId": "PE-2026-0561"
+   },
+   "entregaPrevista": "2026-09-19",
+   "estado": "completado",
+   "referenciaProveedor": "SGG-DEMO-1172",
+   "lineas": [
+    {
+     "codigo": "VI-0610",
+     "descripcion": "Doble acristalamiento 6/16/4+4 control solar, 1200 × 3000 mm (muro cortina)",
+     "unidad": "uds",
+     "pedidas": 18,
+     "recibidas": 18
+    },
+    {
+     "codigo": "VI-0611",
+     "descripcion": "Doble acristalamiento 6/16/4+4 control solar, 1200 × 600 mm (proyectantes)",
+     "unidad": "uds",
+     "pedidas": 6,
+     "recibidas": 6
+    }
+   ],
+   "articulos": 2,
+   "unidadesPedidas": 24,
+   "unidadesRecibidas": 24,
+   "historial": [
+    {
+     "fecha": "2026-09-08",
+     "texto": "Pedido enviado al proveedor."
+    },
+    {
+     "fecha": "2026-09-19",
+     "texto": "Recibido completo en obra."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0214",
+   "fecha": "2026-08-27",
+   "proveedor": {
+    "codigo": "cortizo",
+    "nombre": "Cortizo",
+    "suministra": "Perfiles de aluminio y PVC, herrajes y accesorios",
+    "familia": "perfil"
+   },
+   "destino": {
+    "tipo": "obra",
+    "nombre": "Oficinas Nave Imaginaria (obra ficticia)",
+    "pedidoClienteId": "PE-2026-0561"
+   },
+   "entregaPrevista": "2026-09-05",
+   "estado": "completado",
+   "referenciaProveedor": null,
+   "lineas": [
+    {
+     "codigo": "MC-0801",
+     "descripcion": "Montante de muro cortina, negro RAL 9005, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 24,
+     "recibidas": 24
+    },
+    {
+     "codigo": "MC-0802",
+     "descripcion": "Travesaño de muro cortina, negro RAL 9005, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 30,
+     "recibidas": 30
+    },
+    {
+     "codigo": "MC-0803",
+     "descripcion": "Tapeta exterior de muro cortina, negro RAL 9005, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 54,
+     "recibidas": 54
+    },
+    {
+     "codigo": "MC-0804",
+     "descripcion": "Presor y junta de muro cortina, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 54,
+     "recibidas": 54
+    },
+    {
+     "codigo": "PF-0301",
+     "descripcion": "Perfil marco proyectante RPT, negro RAL 9005, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 4,
+     "recibidas": 4
+    },
+    {
+     "codigo": "PF-0302",
+     "descripcion": "Perfil hoja proyectante RPT, negro RAL 9005, barra de 6,5 m",
+     "unidad": "barras",
+     "pedidas": 4,
+     "recibidas": 4
+    },
+    {
+     "codigo": "HE-0320",
+     "descripcion": "Herraje proyectante con compás, juego",
+     "unidad": "uds",
+     "pedidas": 6,
+     "recibidas": 6
+    }
+   ],
+   "articulos": 7,
+   "unidadesPedidas": 176,
+   "unidadesRecibidas": 176,
+   "historial": [
+    {
+     "fecha": "2026-08-27",
+     "texto": "Pedido enviado al proveedor."
+    },
+    {
+     "fecha": "2026-08-28",
+     "texto": "Confirmado por el proveedor."
+    },
+    {
+     "fecha": "2026-09-05",
+     "texto": "Recibido completo."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0207",
+   "fecha": "2026-08-18",
+   "proveedor": {
+    "codigo": "nice",
+    "nombre": "Nice",
+    "suministra": "Motores y mandos para persianas",
+    "familia": "motorizacion"
+   },
+   "destino": {
+    "tipo": "stock",
+    "nombre": "Stock de taller",
+    "pedidoClienteId": null
+   },
+   "entregaPrevista": "2026-08-26",
+   "estado": "completado",
+   "referenciaProveedor": null,
+   "lineas": [
+    {
+     "codigo": "MO-0540",
+     "descripcion": "Motor tubular con receptor de radio, 20 Nm",
+     "unidad": "uds",
+     "pedidas": 4,
+     "recibidas": 4
+    },
+    {
+     "codigo": "MA-0541",
+     "descripcion": "Mando a distancia de 1 canal",
+     "unidad": "uds",
+     "pedidas": 4,
+     "recibidas": 4
+    }
+   ],
+   "articulos": 2,
+   "unidadesPedidas": 8,
+   "unidadesRecibidas": 8,
+   "historial": [
+    {
+     "fecha": "2026-08-18",
+     "texto": "Pedido enviado al proveedor (stock de motores para posventa)."
+    },
+    {
+     "fecha": "2026-08-26",
+     "texto": "Recibido completo."
+    }
+   ]
+  },
+  {
+   "id": "PP-2026-0188",
+   "fecha": "2026-07-01",
+   "proveedor": {
+    "codigo": "kommerling",
+    "nombre": "Kömmerling",
+    "suministra": "Cajones de persiana RolaPlus",
+    "familia": "persiana"
+   },
+   "destino": {
+    "tipo": "obra",
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "pedidoClienteId": "PE-2026-0534"
+   },
+   "entregaPrevista": "2026-07-10",
+   "estado": "completado",
+   "referenciaProveedor": "KOM-DEMO-8120",
+   "lineas": [
+    {
+     "codigo": "CP-0701",
+     "descripcion": "Cajón de persiana RolaPlus con lama térmica, 1400 mm, preparado para motor",
+     "unidad": "uds",
+     "pedidas": 4,
+     "recibidas": 4
+    },
+    {
+     "codigo": "CP-0703",
+     "descripcion": "Cajón de persiana RolaPlus con lama térmica, 900 mm, accionamiento por cinta",
+     "unidad": "uds",
+     "pedidas": 2,
+     "recibidas": 2
+    }
+   ],
+   "articulos": 2,
+   "unidadesPedidas": 6,
+   "unidadesRecibidas": 6,
+   "historial": [
+    {
+     "fecha": "2026-07-01",
+     "texto": "Pedido enviado al proveedor."
+    },
+    {
+     "fecha": "2026-07-08",
+     "texto": "Recibido completo."
+    }
+   ]
+  }
+ ]
+}
