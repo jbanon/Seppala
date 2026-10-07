@@ -1,0 +1,58 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "DOC-001",
+   "categoria": "ficha_tecnica",
+   "titulo": "Ficha técnica cajón de persiana RolaPlus (Kömmerling)",
+   "url": "/docs/ficha-tecnica-rolaplus-kommerling.pdf",
+   "pesoMB": 1.1
+  },
+  {
+   "id": "DOC-002",
+   "categoria": "catalogo",
+   "titulo": "Folleto RolaPlus (Kömmerling)",
+   "url": "/docs/folleto-rolaplus-kommerling.pdf",
+   "pesoMB": 1.9
+  },
+  {
+   "id": "DOC-003",
+   "categoria": "catalogo",
+   "titulo": "Folleto Climalit (Saint-Gobain Glass)",
+   "url": "/docs/folleto-climalit-saint-gobain.pdf",
+   "pesoMB": 1.8
+  },
+  {
+   "id": "GUIA-1",
+   "categoria": "guia",
+   "titulo": "¿Aluminio o PVC? Comparativa",
+   "url": "/productos/#aluminio-o-pvc",
+   "pesoMB": null
+  },
+  {
+   "id": "GUIA-2",
+   "categoria": "guia",
+   "titulo": "Tipos de vidrio y cuándo usar cada uno",
+   "url": "/vidrio/",
+   "pesoMB": null
+  },
+  {
+   "id": "GUIA-3",
+   "categoria": "guia",
+   "titulo": "Cajones de persiana y persianas de aluminio",
+   "url": "/persianas/",
+   "pesoMB": null
+  },
+  {
+   "id": "GUIA-4",
+   "categoria": "guia",
+   "titulo": "Motorización y domótica",
+   "url": "/motorizacion/",
+   "pesoMB": null
+  }
+ ]
+}

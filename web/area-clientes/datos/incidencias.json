@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "IN-2026-0044",
+   "fechaApertura": "2026-07-28",
+   "pedidoId": "PE-2026-0534",
+   "tipo": "Persiana o motor",
+   "asunto": "La persiana motorizada del dormitorio no sube del todo",
+   "descripcion": "La persiana de la ventana del dormitorio principal (posición 1, tercera unidad) se detiene unos 10 cm antes de llegar arriba. El motor suena pero no completa el recorrido.",
+   "estado": "en_curso",
+   "fotos": 2,
+   "historial": [
+    {
+     "fecha": "2026-07-28",
+     "autor": "Usuario Demo",
+     "texto": "Incidencia abierta desde el portal con 2 fotos."
+    },
+    {
+     "fecha": "2026-07-29",
+     "autor": "Posventa Seppala (ficticio)",
+     "texto": "Recibido. Parece un ajuste de los finales de carrera del motor. Os llamamos para concertar visita."
+    },
+    {
+     "fecha": "2026-10-02",
+     "autor": "Posventa Seppala (ficticio)",
+     "texto": "Visita programada para la semana que viene; se ajustará el final de carrera en la propia vivienda."
+    }
+   ]
+  },
+  {
+   "id": "IN-2026-0031",
+   "fechaApertura": "2026-06-05",
+   "pedidoId": "PE-2026-0498",
+   "tipo": "Vidrio",
+   "asunto": "Vidrio con arañazo en el fijo de la escalera",
+   "descripcion": "Al retirar el film de protección hemos visto un arañazo de unos 8 cm en la cara exterior del fijo de la escalera.",
+   "estado": "resuelta",
+   "fotos": 1,
+   "historial": [
+    {
+     "fecha": "2026-06-05",
+     "autor": "Usuario Demo",
+     "texto": "Incidencia abierta desde el portal."
+    },
+    {
+     "fecha": "2026-06-06",
+     "autor": "Posventa Seppala (ficticio)",
+     "texto": "Pedido el vidrio de reposición al fabricante."
+    },
+    {
+     "fecha": "2026-06-19",
+     "autor": "Posventa Seppala (ficticio)",
+     "texto": "Vidrio sustituido en obra. Incidencia resuelta."
+    }
+   ]
+  }
+ ]
+}

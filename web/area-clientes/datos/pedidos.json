@@ -1,0 +1,411 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "PE-2026-0587",
+   "presupuestoId": "PR-2026-0381",
+   "fechaPedido": "2026-09-01",
+   "estado": "en_fabricacion",
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "referenciaCliente": "CERROS-SALON",
+   "fases": [
+    {
+     "clave": "aceptado",
+     "fecha": "2026-09-01"
+    },
+    {
+     "clave": "medicion",
+     "fecha": "2026-09-08"
+    },
+    {
+     "clave": "en_fabricacion",
+     "fecha": "2026-09-22"
+    },
+    {
+     "clave": "instalacion_programada",
+     "fecha": null
+    },
+    {
+     "clave": "instalado",
+     "fecha": null
+    }
+   ],
+   "fechaPrevistaInstalacion": "2026-10-20",
+   "instalacion": {
+    "tipo": "Instalación en obra por nuestro equipo",
+    "direccion": "Camino de los Cerros, s/n · Aldea Simulada",
+    "contacto": "Propietario Demo · 600 000 001"
+   },
+   "unidades": 8,
+   "importes": {
+    "bruto": 9770.0,
+    "descuentoPct": 8,
+    "descuento": 781.6,
+    "baseImponible": 8988.4,
+    "ivaPct": 21,
+    "iva": 1887.56,
+    "total": 10875.96
+   },
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "Aluminio",
+     "sistema": "Aluminio corredera RPT",
+     "descripcion": "Corredera 2 hojas de salón a terraza",
+     "apertura": "Corredera",
+     "anchoMm": 3200,
+     "altoMm": 2300,
+     "unidades": 1,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4+4/16/6 Guardian Sun",
+     "persiana": null,
+     "precioUnitario": 2890.0,
+     "importe": 2890.0
+    },
+    {
+     "posicion": 2,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Ventana 1 hoja oscilobatiente",
+     "apertura": "Oscilobatiente",
+     "anchoMm": 800,
+     "altoMm": 1100,
+     "unidades": 5,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4/16/4 bajo emisivo",
+     "persiana": "Compacto con persiana de seguridad autoblocante, motor",
+     "precioUnitario": 1120.0,
+     "importe": 5600.0
+    },
+    {
+     "posicion": 3,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Fijo lateral de escalera",
+     "apertura": "Fijo",
+     "anchoMm": 600,
+     "altoMm": 2200,
+     "unidades": 2,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4+4/16/6 Guardian Sun",
+     "persiana": null,
+     "precioUnitario": 640.0,
+     "importe": 1280.0
+    }
+   ],
+   "albaranIds": [],
+   "facturaIds": [
+    "FV-2026-0661"
+   ]
+  },
+  {
+   "id": "PE-2026-0561",
+   "presupuestoId": "PR-2026-0362",
+   "fechaPedido": "2026-08-04",
+   "estado": "instalacion_programada",
+   "obra": {
+    "nombre": "Oficinas Nave Imaginaria (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "referenciaCliente": "NAVE-FACHADA",
+   "fases": [
+    {
+     "clave": "aceptado",
+     "fecha": "2026-08-04"
+    },
+    {
+     "clave": "medicion",
+     "fecha": "2026-08-11"
+    },
+    {
+     "clave": "en_fabricacion",
+     "fecha": "2026-08-25"
+    },
+    {
+     "clave": "instalacion_programada",
+     "fecha": "2026-10-13"
+    },
+    {
+     "clave": "instalado",
+     "fecha": null
+    }
+   ],
+   "fechaPrevistaInstalacion": "2026-10-13",
+   "instalacion": {
+    "tipo": "Instalación en obra por nuestro equipo",
+    "direccion": "Pol. Ind. Ficticio, nave 7 · Polígono Ficticio",
+    "contacto": "Jefe de obra Demo · 600 000 002"
+   },
+   "unidades": 24,
+   "importes": {
+    "bruto": 30960.0,
+    "descuentoPct": 10,
+    "descuento": 3096.0,
+    "baseImponible": 27864.0,
+    "ivaPct": 21,
+    "iva": 5851.44,
+    "total": 33715.44
+   },
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "Aluminio",
+     "sistema": "Muro cortina",
+     "descripcion": "Fachada de muro cortina, módulo de 1,20 × 3,00 m",
+     "apertura": "Fijo",
+     "anchoMm": 1200,
+     "altoMm": 3000,
+     "unidades": 18,
+     "color": {
+      "exterior": "Negro RAL 9005",
+      "interior": "Negro RAL 9005"
+     },
+     "vidrio": "6/16/4+4 control solar",
+     "persiana": null,
+     "precioUnitario": 1480.0,
+     "importe": 26640.0
+    },
+    {
+     "posicion": 2,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Ventana proyectante de ventilación",
+     "apertura": "Proyectante",
+     "anchoMm": 1200,
+     "altoMm": 600,
+     "unidades": 6,
+     "color": {
+      "exterior": "Negro RAL 9005",
+      "interior": "Negro RAL 9005"
+     },
+     "vidrio": "6/16/4+4 control solar",
+     "persiana": null,
+     "precioUnitario": 720.0,
+     "importe": 4320.0
+    }
+   ],
+   "albaranIds": [],
+   "facturaIds": []
+  },
+  {
+   "id": "PE-2026-0534",
+   "presupuestoId": "PR-2026-0340",
+   "fechaPedido": "2026-06-30",
+   "estado": "instalado",
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "referenciaCliente": "REF-INV-12",
+   "fases": [
+    {
+     "clave": "aceptado",
+     "fecha": "2026-06-30"
+    },
+    {
+     "clave": "medicion",
+     "fecha": "2026-07-03"
+    },
+    {
+     "clave": "en_fabricacion",
+     "fecha": "2026-07-08"
+    },
+    {
+     "clave": "instalacion_programada",
+     "fecha": "2026-07-22"
+    },
+    {
+     "clave": "instalado",
+     "fecha": "2026-07-23"
+    }
+   ],
+   "fechaPrevistaInstalacion": "2026-07-22",
+   "instalacion": {
+    "tipo": "Instalación en vivienda habitada (retirada de la carpintería antigua incluida)",
+    "direccion": "C/ Inventada, 12 · Villaejemplo",
+    "contacto": "Inquilino Demo · 600 000 003"
+   },
+   "unidades": 10,
+   "importes": {
+    "bruto": 4002.0,
+    "descuentoPct": 8,
+    "descuento": 320.16,
+    "baseImponible": 3681.84,
+    "ivaPct": 21,
+    "iva": 773.19,
+    "total": 4455.03
+   },
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "PVC",
+     "sistema": "PVC abisagrada 70 mm",
+     "descripcion": "Ventana 2 hojas oscilobatiente con persiana",
+     "apertura": "Oscilobatiente + practicable",
+     "anchoMm": 1400,
+     "altoMm": 1200,
+     "unidades": 4,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": "4/16/4 bajo emisivo",
+     "persiana": "Compacto con lama térmica, motor Somfy",
+     "precioUnitario": 612.0,
+     "importe": 2448.0
+    },
+    {
+     "posicion": 2,
+     "familia": "PVC",
+     "sistema": "PVC abisagrada 70 mm",
+     "descripcion": "Balconera 1 hoja oscilobatiente",
+     "apertura": "Oscilobatiente",
+     "anchoMm": 900,
+     "altoMm": 2150,
+     "unidades": 2,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": "3+3/14/4 bajo emisivo",
+     "persiana": "Compacto con lama térmica, cinta",
+     "precioUnitario": 585.0,
+     "importe": 1170.0
+    },
+    {
+     "posicion": 3,
+     "familia": "Complementos",
+     "sistema": "Mosquitera enrollable vertical",
+     "descripcion": "Mosquitera enrollable para ventana",
+     "apertura": "Enrollable",
+     "anchoMm": 1400,
+     "altoMm": 1200,
+     "unidades": 4,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": null,
+     "persiana": null,
+     "precioUnitario": 96.0,
+     "importe": 384.0
+    }
+   ],
+   "albaranIds": [
+    "AL-2026-0611"
+   ],
+   "facturaIds": [
+    "FV-2026-0598"
+   ]
+  },
+  {
+   "id": "PE-2026-0498",
+   "presupuestoId": "PR-2026-0287",
+   "fechaPedido": "2026-04-28",
+   "estado": "instalado",
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "referenciaCliente": "CERROS-PLANTA-1",
+   "fases": [
+    {
+     "clave": "aceptado",
+     "fecha": "2026-04-28"
+    },
+    {
+     "clave": "medicion",
+     "fecha": "2026-05-05"
+    },
+    {
+     "clave": "en_fabricacion",
+     "fecha": "2026-05-12"
+    },
+    {
+     "clave": "instalacion_programada",
+     "fecha": "2026-06-02"
+    },
+    {
+     "clave": "instalado",
+     "fecha": "2026-06-02"
+    }
+   ],
+   "fechaPrevistaInstalacion": "2026-06-02",
+   "instalacion": {
+    "tipo": "Instalación en obra por nuestro equipo",
+    "direccion": "Camino de los Cerros, s/n · Aldea Simulada",
+    "contacto": "Propietario Demo · 600 000 001"
+   },
+   "unidades": 7,
+   "importes": {
+    "bruto": 6880.0,
+    "descuentoPct": 8,
+    "descuento": 550.4,
+    "baseImponible": 6329.6,
+    "ivaPct": 21,
+    "iva": 1329.22,
+    "total": 7658.82
+   },
+   "lineas": [
+    {
+     "posicion": 2,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Ventana 1 hoja oscilobatiente",
+     "apertura": "Oscilobatiente",
+     "anchoMm": 800,
+     "altoMm": 1100,
+     "unidades": 5,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4/16/4 bajo emisivo",
+     "persiana": "Compacto con persiana de seguridad autoblocante, motor",
+     "precioUnitario": 1120.0,
+     "importe": 5600.0
+    },
+    {
+     "posicion": 3,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Fijo lateral de escalera",
+     "apertura": "Fijo",
+     "anchoMm": 600,
+     "altoMm": 2200,
+     "unidades": 2,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4+4/16/6 Guardian Sun",
+     "persiana": null,
+     "precioUnitario": 640.0,
+     "importe": 1280.0
+    }
+   ],
+   "albaranIds": [
+    "AL-2026-0540"
+   ],
+   "facturaIds": [
+    "FV-2026-0512"
+   ]
+  }
+ ]
+}

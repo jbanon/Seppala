@@ -1,0 +1,58 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "FV-2026-0661",
+   "fecha": "2026-09-22",
+   "pedidoId": "PE-2026-0587",
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "concepto": "Anticipo 40 % a inicio de fabricación",
+   "baseImponible": 3595.36,
+   "iva": 755.02,
+   "total": 4350.38,
+   "vencimiento": "2026-10-22",
+   "formaPago": "Transferencia 30 días",
+   "estado": "pendiente",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf"
+  },
+  {
+   "id": "FV-2026-0598",
+   "fecha": "2026-07-23",
+   "pedidoId": "PE-2026-0534",
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "baseImponible": 3681.84,
+   "iva": 773.19,
+   "total": 4455.03,
+   "vencimiento": "2026-08-22",
+   "formaPago": "Transferencia 30 días",
+   "estado": "pagada",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf"
+  },
+  {
+   "id": "FV-2026-0512",
+   "fecha": "2026-06-02",
+   "pedidoId": "PE-2026-0498",
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "baseImponible": 6329.6,
+   "iva": 1329.22,
+   "total": 7658.82,
+   "vencimiento": "2026-07-02",
+   "formaPago": "Transferencia 30 días",
+   "estado": "pagada",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf"
+  }
+ ]
+}

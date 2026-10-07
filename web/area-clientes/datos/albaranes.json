@@ -1,0 +1,39 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "AL-2026-0611",
+   "fecha": "2026-07-23",
+   "pedidoId": "PE-2026-0534",
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "tipo": "Acta de instalación",
+   "bultos": 4,
+   "unidades": 10,
+   "estado": "instalado",
+   "recibidoPor": "Inquilino Demo",
+   "pdf": "/area-clientes/docs-demo/albaran-demo.pdf"
+  },
+  {
+   "id": "AL-2026-0540",
+   "fecha": "2026-06-02",
+   "pedidoId": "PE-2026-0498",
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "tipo": "Acta de instalación",
+   "bultos": 3,
+   "unidades": 7,
+   "estado": "instalado",
+   "recibidoPor": "Propietario Demo",
+   "pdf": "/area-clientes/docs-demo/albaran-demo.pdf"
+  }
+ ]
+}

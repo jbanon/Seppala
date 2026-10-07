@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": {
+  "id": 2087,
+  "codigo": "C-02087",
+  "razonSocial": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+  "nif": "B00000000",
+  "tipo": "Empresa de reformas / profesional",
+  "direccionFiscal": {
+   "linea": "C/ de la Muestra, 4, oficina 2",
+   "cp": "00000",
+   "localidad": "Villaejemplo",
+   "provincia": "Provincia Inventada"
+  },
+  "direccionesEntrega": [
+   {
+    "alias": "Almacén",
+    "linea": "Pol. Ind. Ficticio, nave 3 · 00000 Pueblo Demo",
+    "horario": "L–V 8:00–14:00"
+   },
+   {
+    "alias": "Obra Los Cerros",
+    "linea": "Camino de los Cerros, s/n · Aldea Simulada",
+    "horario": "Avisar 24 h antes de instalar"
+   }
+  ],
+  "usuarios": [
+   {
+    "nombre": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "rol": "Administrador",
+    "ultimoAcceso": "2026-10-07"
+   },
+   {
+    "nombre": "Oficina Técnica Demo",
+    "email": "tecnica@cliente-demo.example",
+    "rol": "Solo consulta",
+    "ultimoAcceso": "2026-10-03"
+   }
+  ],
+  "comercial": {
+   "nombre": "Comercial Demo (persona ficticia)",
+   "telefono": "91 830 05 43",
+   "email": "administracion@aluminioseppala.com"
+  },
+  "condiciones": {
+   "formaPago": "Transferencia 30 días",
+   "tarifa": "Profesional",
+   "descuentoHabitualPct": 8
+  },
+  "avisos": {
+   "pedidoCambiaDeFase": true,
+   "instalacionProgramada": true,
+   "presupuestoPorCaducar": true,
+   "facturaNueva": true,
+   "incidenciaActualizada": true
+  }
+ }
+}

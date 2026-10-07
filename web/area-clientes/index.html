@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Acceso · Área de clientes (demo) | Aluminios Seppala</title>
+  <meta name="description" content="Demo del área de clientes de Aluminios Seppala con datos ficticios: acceso simulado.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b2a33">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+  <link rel="stylesheet" href="/css/estilo.css?v=20261007">
+  <link rel="stylesheet" href="/area-clientes/portal.css?v=20261007">
+</head>
+<body class="portal" data-pagina="acceso">
+<!-- DEMO navegable con datos ficticios: cualquier usuario y contraseña entra (portal.js) -->
+<main class="p-acceso">
+  <section class="p-acceso__form">
+    <div>
+      <a href="/" aria-label="Aluminios Seppala, volver a la web"><img class="logo" src="/img/marca/logo-seppala.png" alt="Aluminios Seppala S.A." width="546" height="165"></a>
+      <p class="sobretitulo">Área de clientes</p>
+      <h1>Tus presupuestos y pedidos, <em>al día</em></h1>
+      <p>Consulta presupuestos, sigue la fabricación y la instalación de tus pedidos, descarga facturas y abre incidencias.</p>
+      <div class="p-aviso p-aviso--info" role="note" style="margin:1.5rem 0 0"><span><strong>Esto es una demostración.</strong> Cualquier usuario y contraseña entra. Todos los datos que verás son ficticios.</span></div>
+      <form class="formulario" id="f-acceso" action="/area-clientes/inicio/" method="get" autocomplete="off">
+        <div class="campo"><label for="usuario">Usuario o correo</label><input id="usuario" name="usuario" type="text" value="demo" autocapitalize="none" spellcheck="false" required></div>
+        <div class="campo"><label for="clave">Contraseña</label><input id="clave" name="clave" type="password" value="demo" required></div>
+        <div><button class="boton" type="submit">Entrar en la demo</button></div>
+      </form>
+      <div class="p-acceso__enlaces"><a href="/contacto/#presupuesto">¿Aún no eres cliente?</a><a href="/">Volver a la web</a></div>
+    </div>
+  </section>
+  <div class="p-acceso__foto" aria-hidden="true">
+    <img src="/img/ambiente/salon-corredera-vistas-1024.webp" srcset="/img/ambiente/salon-corredera-vistas-640.webp 640w, /img/ambiente/salon-corredera-vistas-1024.webp 1024w" sizes="60vw" width="1024" height="696" alt="">
+  </div>
+</main>
+<script src="/area-clientes/portal.js?v=20261007" defer></script>
+</body>
+</html>

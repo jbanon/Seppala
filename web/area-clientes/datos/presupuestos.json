@@ -1,0 +1,585 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "PR-2026-0412",
+   "fecha": "2026-09-29",
+   "validoHasta": "2026-10-29",
+   "estado": "pendiente",
+   "obra": {
+    "nombre": "Residencial Las Encinas Demo, bloque B (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "referenciaCliente": "ENCINAS-B",
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "PVC",
+     "sistema": "PVC abisagrada 84 mm",
+     "descripcion": "Ventana 2 hojas oscilobatiente con persiana",
+     "apertura": "Oscilobatiente + practicable",
+     "anchoMm": 1200,
+     "altoMm": 1200,
+     "unidades": 24,
+     "color": {
+      "exterior": "Nogal",
+      "interior": "Blanco"
+     },
+     "vidrio": "4/16/4 bajo emisivo",
+     "persiana": "Compacto RolaPlus, lama térmica, cinta",
+     "precioUnitario": 598.0,
+     "importe": 14352.0
+    },
+    {
+     "posicion": 2,
+     "familia": "PVC",
+     "sistema": "PVC abisagrada 84 mm",
+     "descripcion": "Balconera 2 hojas con persiana",
+     "apertura": "Practicable",
+     "anchoMm": 1500,
+     "altoMm": 2100,
+     "unidades": 12,
+     "color": {
+      "exterior": "Nogal",
+      "interior": "Blanco"
+     },
+     "vidrio": "3+3/14/4 bajo emisivo",
+     "persiana": "Compacto RolaPlus, lama térmica, motor Nice",
+     "precioUnitario": 1045.0,
+     "importe": 12540.0
+    },
+    {
+     "posicion": 3,
+     "familia": "PVC",
+     "sistema": "PVC corredera",
+     "descripcion": "Corredera 2 hojas de cocina",
+     "apertura": "Corredera",
+     "anchoMm": 1400,
+     "altoMm": 1000,
+     "unidades": 12,
+     "color": {
+      "exterior": "Nogal",
+      "interior": "Blanco"
+     },
+     "vidrio": "4/12/4",
+     "persiana": null,
+     "precioUnitario": 410.0,
+     "importe": 4920.0
+    }
+   ],
+   "unidades": 48,
+   "importes": {
+    "bruto": 31812.0,
+    "descuentoPct": 12,
+    "descuento": 3817.44,
+    "baseImponible": 27994.56,
+    "ivaPct": 21,
+    "iva": 5878.86,
+    "total": 33873.42
+   },
+   "plazoEstimadoDias": 35,
+   "observaciones": "Precios con vidrio, persiana y motor incluidos. Instalación en obra incluida; medición definitiva antes de fabricar.",
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf"
+  },
+  {
+   "id": "PR-2026-0405",
+   "fecha": "2026-09-22",
+   "validoHasta": "2026-10-22",
+   "estado": "pendiente",
+   "obra": {
+    "nombre": "Local comercial Avenida de Ejemplo (obra ficticia)",
+    "localidad": "Pueblo Demo"
+   },
+   "referenciaCliente": "LOCAL-AVDA",
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Puerta de entrada 1 hoja con fijo superior",
+     "apertura": "Practicable",
+     "anchoMm": 1000,
+     "altoMm": 2600,
+     "unidades": 1,
+     "color": {
+      "exterior": "Plata anodizado",
+      "interior": "Plata anodizado"
+     },
+     "vidrio": "5+5/12/4+4 seguridad",
+     "persiana": null,
+     "precioUnitario": 1980.0,
+     "importe": 1980.0
+    },
+    {
+     "posicion": 2,
+     "familia": "Complementos",
+     "sistema": "Cierre enrollable de alta seguridad",
+     "descripcion": "Cierre enrollable de aluminio para escaparate",
+     "apertura": "Enrollable motorizado",
+     "anchoMm": 3600,
+     "altoMm": 2800,
+     "unidades": 1,
+     "color": {
+      "exterior": "Plata anodizado",
+      "interior": "Plata anodizado"
+     },
+     "vidrio": null,
+     "persiana": "Lama extrusionada autoblocante, motor Gaviota",
+     "precioUnitario": 2650.0,
+     "importe": 2650.0
+    }
+   ],
+   "unidades": 2,
+   "importes": {
+    "bruto": 4630.0,
+    "descuentoPct": 5,
+    "descuento": 231.5,
+    "baseImponible": 4398.5,
+    "ivaPct": 21,
+    "iva": 923.68,
+    "total": 5322.18
+   },
+   "plazoEstimadoDias": 30,
+   "observaciones": "Cierre enrollable con motor y mando; pendiente de confirmar el color del cajón.",
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf"
+  },
+  {
+   "id": "PR-2026-0398",
+   "fecha": "2026-09-15",
+   "validoHasta": "2026-10-15",
+   "estado": "en_revision",
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "referenciaCliente": "REF-INV-12-PERS",
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "Complementos",
+     "sistema": "Motorización Somfy io",
+     "descripcion": "Motorización de persianas existentes con mando",
+     "apertura": "Motor + mando 5 canales",
+     "anchoMm": null,
+     "altoMm": null,
+     "unidades": 6,
+     "color": {
+      "exterior": null,
+      "interior": null
+     },
+     "vidrio": null,
+     "persiana": "Motor Somfy io con receptor de radio",
+     "precioUnitario": 215.0,
+     "importe": 1290.0
+    },
+    {
+     "posicion": 2,
+     "familia": "Complementos",
+     "sistema": "Mosquitera enrollable lateral doble",
+     "descripcion": "Mosquitera para puerta de terraza de 2 hojas",
+     "apertura": "Enrollable lateral",
+     "anchoMm": 1800,
+     "altoMm": 2200,
+     "unidades": 1,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": null,
+     "persiana": null,
+     "precioUnitario": 240.0,
+     "importe": 240.0
+    }
+   ],
+   "unidades": 7,
+   "importes": {
+    "bruto": 1530.0,
+    "descuentoPct": 0,
+    "descuento": 0.0,
+    "baseImponible": 1530.0,
+    "ivaPct": 21,
+    "iva": 321.3,
+    "total": 1851.3
+   },
+   "plazoEstimadoDias": 10,
+   "observaciones": "Pendiente de confirmar el número de persianas a motorizar.",
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf"
+  },
+  {
+   "id": "PR-2026-0381",
+   "fecha": "2026-08-25",
+   "validoHasta": "2026-09-24",
+   "estado": "aceptado",
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "referenciaCliente": "CERROS-SALON",
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "Aluminio",
+     "sistema": "Aluminio corredera RPT",
+     "descripcion": "Corredera 2 hojas de salón a terraza",
+     "apertura": "Corredera",
+     "anchoMm": 3200,
+     "altoMm": 2300,
+     "unidades": 1,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4+4/16/6 Guardian Sun",
+     "persiana": null,
+     "precioUnitario": 2890.0,
+     "importe": 2890.0
+    },
+    {
+     "posicion": 2,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Ventana 1 hoja oscilobatiente",
+     "apertura": "Oscilobatiente",
+     "anchoMm": 800,
+     "altoMm": 1100,
+     "unidades": 5,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4/16/4 bajo emisivo",
+     "persiana": "Compacto con persiana de seguridad autoblocante, motor",
+     "precioUnitario": 1120.0,
+     "importe": 5600.0
+    },
+    {
+     "posicion": 3,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Fijo lateral de escalera",
+     "apertura": "Fijo",
+     "anchoMm": 600,
+     "altoMm": 2200,
+     "unidades": 2,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4+4/16/6 Guardian Sun",
+     "persiana": null,
+     "precioUnitario": 640.0,
+     "importe": 1280.0
+    }
+   ],
+   "unidades": 8,
+   "importes": {
+    "bruto": 9770.0,
+    "descuentoPct": 8,
+    "descuento": 781.6,
+    "baseImponible": 8988.4,
+    "ivaPct": 21,
+    "iva": 1887.56,
+    "total": 10875.96
+   },
+   "plazoEstimadoDias": 30,
+   "observaciones": "",
+   "pedidoId": "PE-2026-0587",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf"
+  },
+  {
+   "id": "PR-2026-0362",
+   "fecha": "2026-07-30",
+   "validoHasta": "2026-08-29",
+   "estado": "aceptado",
+   "obra": {
+    "nombre": "Oficinas Nave Imaginaria (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "referenciaCliente": "NAVE-FACHADA",
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "Aluminio",
+     "sistema": "Muro cortina",
+     "descripcion": "Fachada de muro cortina, módulo de 1,20 × 3,00 m",
+     "apertura": "Fijo",
+     "anchoMm": 1200,
+     "altoMm": 3000,
+     "unidades": 18,
+     "color": {
+      "exterior": "Negro RAL 9005",
+      "interior": "Negro RAL 9005"
+     },
+     "vidrio": "6/16/4+4 control solar",
+     "persiana": null,
+     "precioUnitario": 1480.0,
+     "importe": 26640.0
+    },
+    {
+     "posicion": 2,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Ventana proyectante de ventilación",
+     "apertura": "Proyectante",
+     "anchoMm": 1200,
+     "altoMm": 600,
+     "unidades": 6,
+     "color": {
+      "exterior": "Negro RAL 9005",
+      "interior": "Negro RAL 9005"
+     },
+     "vidrio": "6/16/4+4 control solar",
+     "persiana": null,
+     "precioUnitario": 720.0,
+     "importe": 4320.0
+    }
+   ],
+   "unidades": 24,
+   "importes": {
+    "bruto": 30960.0,
+    "descuentoPct": 10,
+    "descuento": 3096.0,
+    "baseImponible": 27864.0,
+    "ivaPct": 21,
+    "iva": 5851.44,
+    "total": 33715.44
+   },
+   "plazoEstimadoDias": 45,
+   "observaciones": "",
+   "pedidoId": "PE-2026-0561",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf"
+  },
+  {
+   "id": "PR-2026-0340",
+   "fecha": "2026-06-24",
+   "validoHasta": "2026-07-24",
+   "estado": "aceptado",
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "referenciaCliente": "REF-INV-12",
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "PVC",
+     "sistema": "PVC abisagrada 70 mm",
+     "descripcion": "Ventana 2 hojas oscilobatiente con persiana",
+     "apertura": "Oscilobatiente + practicable",
+     "anchoMm": 1400,
+     "altoMm": 1200,
+     "unidades": 4,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": "4/16/4 bajo emisivo",
+     "persiana": "Compacto con lama térmica, motor Somfy",
+     "precioUnitario": 612.0,
+     "importe": 2448.0
+    },
+    {
+     "posicion": 2,
+     "familia": "PVC",
+     "sistema": "PVC abisagrada 70 mm",
+     "descripcion": "Balconera 1 hoja oscilobatiente",
+     "apertura": "Oscilobatiente",
+     "anchoMm": 900,
+     "altoMm": 2150,
+     "unidades": 2,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": "3+3/14/4 bajo emisivo",
+     "persiana": "Compacto con lama térmica, cinta",
+     "precioUnitario": 585.0,
+     "importe": 1170.0
+    },
+    {
+     "posicion": 3,
+     "familia": "Complementos",
+     "sistema": "Mosquitera enrollable vertical",
+     "descripcion": "Mosquitera enrollable para ventana",
+     "apertura": "Enrollable",
+     "anchoMm": 1400,
+     "altoMm": 1200,
+     "unidades": 4,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": null,
+     "persiana": null,
+     "precioUnitario": 96.0,
+     "importe": 384.0
+    }
+   ],
+   "unidades": 10,
+   "importes": {
+    "bruto": 4002.0,
+    "descuentoPct": 8,
+    "descuento": 320.16,
+    "baseImponible": 3681.84,
+    "ivaPct": 21,
+    "iva": 773.19,
+    "total": 4455.03
+   },
+   "plazoEstimadoDias": 20,
+   "observaciones": "",
+   "pedidoId": "PE-2026-0534",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf"
+  },
+  {
+   "id": "PR-2026-0319",
+   "fecha": "2026-06-02",
+   "validoHasta": "2026-07-02",
+   "estado": "caducado",
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "referenciaCliente": "REF-INV-12-B",
+   "lineas": [
+    {
+     "posicion": 1,
+     "familia": "PVC",
+     "sistema": "PVC abisagrada 70 mm",
+     "descripcion": "Ventana 2 hojas oscilobatiente con persiana",
+     "apertura": "Oscilobatiente + practicable",
+     "anchoMm": 1400,
+     "altoMm": 1200,
+     "unidades": 4,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": "4/16/4 bajo emisivo",
+     "persiana": "Compacto con lama térmica, motor Somfy",
+     "precioUnitario": 612.0,
+     "importe": 2448.0
+    },
+    {
+     "posicion": 2,
+     "familia": "PVC",
+     "sistema": "PVC abisagrada 70 mm",
+     "descripcion": "Balconera 1 hoja oscilobatiente",
+     "apertura": "Oscilobatiente",
+     "anchoMm": 900,
+     "altoMm": 2150,
+     "unidades": 2,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": "3+3/14/4 bajo emisivo",
+     "persiana": "Compacto con lama térmica, cinta",
+     "precioUnitario": 585.0,
+     "importe": 1170.0
+    },
+    {
+     "posicion": 3,
+     "familia": "Complementos",
+     "sistema": "Mosquitera enrollable vertical",
+     "descripcion": "Mosquitera enrollable para ventana",
+     "apertura": "Enrollable",
+     "anchoMm": 1400,
+     "altoMm": 1200,
+     "unidades": 4,
+     "color": {
+      "exterior": "Blanco",
+      "interior": "Blanco"
+     },
+     "vidrio": null,
+     "persiana": null,
+     "precioUnitario": 96.0,
+     "importe": 384.0
+    }
+   ],
+   "unidades": 10,
+   "importes": {
+    "bruto": 4002.0,
+    "descuentoPct": 5,
+    "descuento": 200.1,
+    "baseImponible": 3801.9,
+    "ivaPct": 21,
+    "iva": 798.4,
+    "total": 4600.3
+   },
+   "plazoEstimadoDias": 20,
+   "observaciones": "",
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf"
+  },
+  {
+   "id": "PR-2026-0287",
+   "fecha": "2026-04-21",
+   "validoHasta": "2026-05-21",
+   "estado": "aceptado",
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "referenciaCliente": "CERROS-PLANTA-1",
+   "lineas": [
+    {
+     "posicion": 2,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Ventana 1 hoja oscilobatiente",
+     "apertura": "Oscilobatiente",
+     "anchoMm": 800,
+     "altoMm": 1100,
+     "unidades": 5,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4/16/4 bajo emisivo",
+     "persiana": "Compacto con persiana de seguridad autoblocante, motor",
+     "precioUnitario": 1120.0,
+     "importe": 5600.0
+    },
+    {
+     "posicion": 3,
+     "familia": "Aluminio",
+     "sistema": "Aluminio abisagrada RPT",
+     "descripcion": "Fijo lateral de escalera",
+     "apertura": "Fijo",
+     "anchoMm": 600,
+     "altoMm": 2200,
+     "unidades": 2,
+     "color": {
+      "exterior": "Gris antracita RAL 7016",
+      "interior": "Gris antracita RAL 7016"
+     },
+     "vidrio": "4+4/16/6 Guardian Sun",
+     "persiana": null,
+     "precioUnitario": 640.0,
+     "importe": 1280.0
+    }
+   ],
+   "unidades": 7,
+   "importes": {
+    "bruto": 6880.0,
+    "descuentoPct": 8,
+    "descuento": 550.4,
+    "baseImponible": 6329.6,
+    "ivaPct": 21,
+    "iva": 1329.22,
+    "total": 7658.82
+   },
+   "plazoEstimadoDias": 25,
+   "observaciones": "",
+   "pedidoId": "PE-2026-0498",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf"
+  }
+ ]
+}
