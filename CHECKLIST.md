@@ -17,6 +17,7 @@
 | 7. Legal y cookies | [x] | `/aviso-legal/`, `/privacidad/`, `/cookies/`, aviso de consentimiento en todas las páginas |
 | 8. Calidad | [x] | Resultados en el apartado 6 de este documento |
 | 9. Cierre | [x] | Este documento y el resumen final |
+| Ampliación (07/10/2026): panel de gestión interna, demo | [x] | `web/gestion/` (7 pantallas, `datos/*.json` generados por `herramientas/datos_gestion.py`). Pedida por el usuario tras el cierre (ADR-0003 del arquitecto); ver apartado 3 bis |
 
 ## 2. Alcance de páginas
 
@@ -37,7 +38,8 @@
 | `/empresa/` | [x] | Trayectoria (+25 años), valores, fábrica (maquinaria citada en la ayuda), **textos literales de las dos ayudas públicas con sus logos**, marcas. [c] Año de fundación y fotos propias (1.5, 3.1) |
 | `/contacto/` | [x] | Formulario con `action` único pendiente (envío provisional por `mailto:`), cláusula RGPD, mapa de Google solo con consentimiento. [c] Servicio de envío, horario, dirección (5.1, 1.3, 1.1) |
 | `/aviso-legal/`, `/privacidad/`, `/cookies/` | [x] | [c] Datos registrales y revisión por la gestoría (1.2, 4.1–4.3) |
-| `404.html`, `sitemap.xml`, `robots.txt` | [x] | 16 URL en el sitemap; `/area-clientes/` y `/estilo.html` excluidos |
+| `404.html`, `sitemap.xml`, `robots.txt` | [x] | 16 URL en el sitemap; `/area-clientes/`, `/gestion/` y `/estilo.html` excluidos |
+| `/gestion/` Gestión interna (demo) | [x] | Panel de uso interno del personal, con acceso simulado propio. `noindex`, fuera del sitemap y bloqueado en `robots.txt`. [d] Sin enlace desde el menú ni el pie públicos (no es un destino para visitantes); se entra por la URL. Ver 3 bis |
 | Menú | [d] | Seis entradas: Ventanas y cerramientos · Complementos · Asesoramiento · Proyectos · Empresa · Contacto, más «Pedir presupuesto» y «Área clientes (Demo)». Sección activa marcada por `comunes.py` |
 
 ## 3. Área de clientes (demo)
@@ -48,6 +50,21 @@
 - [x] Franja «Demo · Datos ficticios» en todas; `noindex`; fuera del sitemap y bloqueada en `robots.txt`; comentario en el código de cada pantalla; aviso en el aviso legal y en la política de privacidad.
 - [x] Recorrido probado con Playwright: entrar → aceptar presupuesto → abrir incidencia con pedido preseleccionado → listado → salir; 0 errores, 0 peticiones externas.
 - [d] Fases del pedido propuestas para un instalador: aceptado → medición → fabricación → instalación programada → instalado (6.2). Propuestas marcadas en pantalla con la etiqueta «Propuesta».
+
+## 3 bis. Panel de gestión interna (demo, ampliación del 07/10/2026)
+
+Demo **de uso interno del personal de Seppala** (no de clientes), hermana del área de clientes, pedida por el usuario tras el cierre
+de los 9 goals (ADR-0003 del arquitecto, tareas 0002–0005). Prioridad explícita: diseño y pocas pantallas cuidadas sobre
+completitud funcional.
+
+- [x] Acceso simulado propio en `/gestion/` (cualquier usuario y contraseña; sesión independiente de la del área de clientes), con aviso de demo visible y textos para personal interno.
+- [x] **Inicio = panel de mando**: cuatro indicadores calculados de los JSON (presupuestos sin enviar, pedidos a proveedores en curso, facturación del mes, pendiente de cobro), lista «Necesita atención» (presupuestos y facturas sin enviar, facturas vencidas, presupuestos a punto de caducar, pedidos retrasados o con recepción parcial) con enlace a cada sección, próximas entregas de material y últimos movimientos. Nada escrito a mano en el HTML.
+- [x] **Presupuestos** y **facturas** de 7 clientes ficticios (incluido el cliente de ejemplo del área de clientes, con sus mismos documentos, importados de `datos_demo.py` para que las dos demos cuadren): tabla (tarjetas en móvil), filtros con recuento, buscador, **Enviar / Reenviar con fecha del último envío** y diálogo de envío (destinatario y asunto precargados y editables, plantilla de texto editable, PDF adjunto, Cancelar / Confirmar). Facturas: «enviar varias» del mismo cliente en un solo correo. **No se envía ningún correo**: el envío se registra en `sessionStorage`.
+- [x] **Pedidos a proveedores**: en curso (tarjetas con progreso de recepción y filtro por familia), ficha con líneas (pedidas / recibidas / restantes) y **recepción simulada** (cantidad por línea, «Rellenar pedido completo», «Confirmar recepción»; el estado pasa de Pendiente a Parcial y Completado), e historial de completados y cancelados con filtro por estado y proveedor. Proveedores: solo las marcas confirmadas en `INVESTIGACION.md` §5 (Cortizo, Kömmerling, Guardian Glass, Saint-Gobain Glass, Somfy, Nice, Gaviota); artículos con descripción genérica y código interno ficticio, sin referencias reales ni precios. [c] Sin proveedor de mosquiteras ni de lamas de persiana porque no consta (6b.2).
+- [x] Franja «Demo de gestión interna · Datos ficticios» en todas las pantallas; comentario de demo en cada HTML y en `gestion.js`; datos en `web/gestion/datos/` con `LEEME.md`; capa `api` única (hoy JSON + `sessionStorage`) pensada para un backend futuro, igual que `portal.js`.
+- [d] Fichero propio `gestion.js` (dos roles distintos, sesión y datos propios) que reutiliza `/area-clientes/portal.css` para el marco visual; `gestion.css` solo añade lo propio. Sin tocar `web/area-clientes/`.
+- [d] Fuera de alcance, a propósito: generación de pedidos a proveedor por cálculo de demanda y tablero de fases de fabricación (ADR-0003); pantalla de «nuevo pedido» (opcional, no hecha); detalle de presupuesto o factura en la vista interna (ya existe en el área de clientes).
+- [c] Preguntas abiertas en `PREGUNTAS_CLIENTE.md` 6 bis (si les interesa, proveedores, qué más acciones internas).
 
 ## 4. Criterios de calidad no negociables
 
@@ -78,8 +95,9 @@
 
 | Comprobación | Herramienta | Resultado |
 |---|---|---|
-| Enlaces, anclas, recursos, `alt`, `width/height`, h1, title, description, canonical | `herramientas/enlaces.py` | 30 páginas, 0 problemas |
-| Móvil: scroll horizontal, texto < 12 px, campos < 16 px, táctil < 44 px, elementos fijos | `herramientas/movil.py` (Chromium, 360/390/414/844×390) | 29 páginas × 4 vistas, 0 problemas |
+| Enlaces, anclas, recursos, `alt`, `width/height`, h1, title, description, canonical | `herramientas/enlaces.py` | 30 páginas, 0 problemas · tras la ampliación (07/10/2026): 37 páginas, 0 problemas |
+| Móvil: scroll horizontal, texto < 12 px, campos < 16 px, táctil < 44 px, elementos fijos | `herramientas/movil.py` (Chromium, 360/390/414/844×390) | 29 páginas × 4 vistas, 0 problemas · ampliación: las 7 páginas de `/gestion/` × 4 vistas, 0 problemas (dos fallos encontrados y corregidos por el camino: selector a 15 px, enlaces «Ver» de 43 px) |
+| Panel de gestión demo de extremo a extremo | Prueba con Playwright | Correcto: acceso → envío de presupuesto (Enviar → Reenviar con fecha, persiste al recargar) → envío de varias facturas del mismo cliente → recepción parcial y completa de un pedido a proveedor → indicadores del panel recalculados; 0 errores JS, 0 peticiones externas |
 | Capturas a 390 y 1440 px, errores de consola, recursos 404, desborde | `herramientas/capturas.py` | 30 páginas, sin errores (capturas en `referencia/capturas/`, no versionadas) |
 | Peticiones a terceros sin consentimiento | Barrido con Playwright | 30 páginas, ninguna |
 | Consentimiento (aceptar/rechazar/cambiar), mapa, vídeo local | Prueba con Playwright | Correcto |
@@ -95,6 +113,7 @@
 - [r] **Repositorio remoto en GitHub**: no existe. Decidir si se crea y con qué nombre (ver resumen final).
 - [r] **WebKit**: intentado el 07/10/2026 (tarea 0001 del arquitecto). El navegador WebKit de Playwright ya está descargado (`~/.cache/ms-playwright/webkit-2359`), pero al lanzarlo falla con «Host system is missing dependencies to run browsers» (faltan `libgtk-4.so.1`, `libpangocairo-1.0.so.0`, `libsoup-3.0.so.0`… en total 237 paquetes apt según `playwright install-deps webkit --dry-run`), y `sudo` exige contraseña interactiva (`sudo -n` → «interactive authentication is required»). Lo tiene que ejecutar el responsable: `sudo .venv/bin/playwright install-deps webkit` y después `.venv/bin/python herramientas/movil.py --motor webkit` (apartado 6 sigue en «No probado» hasta entonces).
 - [r] **Servicio de envío del formulario** (cuando el cliente responda 5.1): cambiar el `action` en `web/contacto/index.html`.
+- [r] **Textos legales y la segunda demo**: el aviso legal («Objeto» y «Área de clientes (demostración)») y la política de privacidad (§9) hablan solo de la demo del área de clientes. Decidir si se añade una frase sobre la demo del panel de gestión interna (misma naturaleza: sin datos personales, cambios solo en el navegador). Redacción propuesta en `.arq/informes/0005-panel-de-mando-demo.md`.
 - [r] **Licencias**: imágenes y vídeos de catálogo de Cortizo y PDF de Kömmerling y Saint-Gobain, en uso provisional (ya los usaba la web antigua, salvo los PDF). Confirmar con las marcas o sustituir por material del cliente.
 - [r] Alojamiento final y DNS (7.2 de las preguntas al cliente).
 

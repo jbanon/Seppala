@@ -6,8 +6,8 @@ No hace falta contestar todo de golpe: las preguntas van por temas y, dentro de 
 importante. Cuando damos una recomendación, es lo que haremos si no nos decís otra cosa.
 
 Las referencias a «la web antigua» son a la actual. Fecha de este documento: 07/10/2026. Os pasaremos la
-dirección de pruebas para que veáis la web nueva y la demostración del área de clientes (se entra con cualquier
-usuario y contraseña; todos los datos son inventados).
+dirección de pruebas para que veáis la web nueva y las dos demostraciones: el área de clientes y el panel de gestión
+interna (en las dos se entra con cualquier usuario y contraseña; todos los datos son inventados).
 
 ---
 
@@ -151,6 +151,24 @@ tiene forma de conectarse.
 
 **6.4. ¿Queréis que el cliente pueda aceptar presupuestos desde el portal, abrir incidencias y descargar
 facturas?** Es lo que hace la demo; decidnos qué sobra y qué falta.
+
+## 6 bis. Panel de gestión interna (demostración)
+
+Además del área de clientes, hemos montado en «Gestión interna» (`/gestion/`) una demostración de **uso interno,
+para vuestro equipo**, también con datos inventados: presupuestos y facturas de varios clientes con el envío por
+correo (simulado), pedidos a proveedores con recepción de material e historial, y un panel de mando con indicadores.
+No se enlaza desde el menú de la web.
+
+**6b.1. ¿Os interesa?** Está pensada para ver si un panel así, conectado a vuestro programa de gestión (6.3), os sería
+útil, y para decidir qué acciones tendría. Decidnos si queréis que os la enseñemos o si preferís dejarla fuera.
+
+**6b.2. Proveedores.** La demo pide material a las marcas que nombra vuestra web antigua: Cortizo (perfil), Kömmerling
+(cajones RolaPlus), Guardian y Saint-Gobain (vidrio), Somfy, Nice y Gaviota (motores). No hemos puesto proveedor de
+mosquiteras ni de lamas de persiana porque no consta ninguno (ver 2.4). ¿Quiénes son? ¿Falta o sobra alguno?
+
+**6b.3. ¿Qué más haría el personal desde aquí?** Hemos representado tres cosas (enviar presupuestos y facturas, pedir y
+recibir material, ver el estado del trabajo). Si hay otras tareas del día a día que os gustaría ver (planificación de
+instalaciones, hojas de taller, partes de posventa…), decidnos cuáles para incluirlas en la demo.
 
 ## 7. Publicación
 

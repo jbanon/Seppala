@@ -98,6 +98,10 @@
     var p = Number(n).toFixed(2).split('.');
     return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + p[1] + ' €';
   }
+  function eurosEnteros(n) { return Math.round(Number(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €'; }   // 49.661 €
+  var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  function fechaLarga(iso) { var p = iso.split('-'); return parseInt(p[2], 10) + ' de ' + MESES[parseInt(p[1], 10) - 1] + ' de ' + p[0]; }
+  function dias(a, b) { return Math.round((new Date(b) - new Date(a)) / 864e5); }
   function param(n) { return new URLSearchParams(location.search).get(n); }
   function suma(l, f) { return l.reduce(function (s, x) { return s + f(x); }, 0); }
   function unicos(l) { return l.filter(function (x, i) { return l.indexOf(x) === i; }); }
@@ -146,14 +150,6 @@
   function titulo(h1, texto, extra, volver) {
     return (volver ? '<a class="p-volver" href="' + volver[0] + '">' + volver[1] + '</a>' : '') +
       '<div class="p-titulo"><div><h1>' + h1 + '</h1>' + (texto ? '<p>' + texto + '</p>' : '') + '</div>' + (extra || '') + '</div>';
-  }
-  function etiqueta(texto) { return '<span class="g-etiqueta">' + esc(texto) + '</span>'; }
-  // Pantalla que la demo aún no tiene: estado explícito, sin contenido de relleno
-  function enConstruccion(h1, texto, que) {
-    pintar(titulo(h1, texto) +
-      '<div class="g-construccion">' + etiqueta('En construcción') + '<p>' + que + '</p>' +
-      '<a class="p-boton" href="' + BASE + 'inicio/">Volver al inicio</a></div>');
-    return Promise.resolve();
   }
 
   /* ---------------- componentes de listado ---------------- */
@@ -227,22 +223,51 @@
   }
 
   /* ---------------- pantallas ---------------- */
-  // Secciones del panel: [clave, título, qué se ve, construida ya en la demo]
-  var SECCIONES = [
-    ['presupuestos', 'Presupuestos', 'Presupuestos de todos los clientes, con el envío por correo del PDF a cada uno y el registro de cuándo se envió.', true],
-    ['facturas', 'Facturas', 'Facturas emitidas, vencimientos y envío por correo, una a una o varias del mismo cliente a la vez.', true],
-    ['pedidos-proveedores', 'Pedidos a proveedores', 'Pedidos de perfil, vidrio, persianas y motores: en curso, recepción de material e historial.', true]
-  ];
   var pantallas = {
+    // Panel de mando: indicadores sencillos calculados sobre los datos de presupuestos, facturas y pedidos a proveedores
     inicio: function (u) {
-      pintar(titulo('Hola, <em>' + esc(u.nombre) + '</em>', esc(u.rol) + ' · ' + esc(u.empresa.nombre)) +
-        '<div class="p-aviso p-aviso--info" role="note"><span><strong>Panel de uso interno.</strong> Desde aquí el equipo envía presupuestos y facturas a los clientes, sigue los pedidos a los proveedores y ve el estado del trabajo. Demo: todos los clientes, importes y proveedores son ficticios y no se envía nada.</span></div>' +
-        '<div class="g-accesos">' + SECCIONES.map(function (s) {
-          return '<a class="g-acceso" href="' + BASE + s[0] + '/"><svg viewBox="0 0 24 24" aria-hidden="true">' + ICONOS[s[0]] + '</svg><h2>' + s[1] + '</h2><p>' + s[2] + '</p>' +
-            '<div class="g-acceso__pie">' + (s[3] ? '<span class="tarjeta__mas" style="min-height:0">Entrar</span>' : etiqueta('En construcción') + '<span class="tarjeta__mas" style="min-height:0">Ver</span>') + '</div></a>';
-        }).join('') + '</div>' +
-        '<div class="g-construccion">' + etiqueta('En construcción') + '<h2>Panel de mando</h2><p>Esta pantalla mostrará, de un vistazo, los presupuestos pendientes de enviar, los pedidos a proveedores por estado, la facturación del mes y las próximas recepciones de material, calculados sobre los datos de las tres secciones cuando estén construidas.</p></div>');
-      return Promise.resolve();
+      return Promise.all([api.presupuestos(), api.facturas(), api.pedidosProveedores()]).then(function (r) {
+        var pres = r[0], fact = r[1], peds = r[2], PP = BASE + 'pedidos-proveedores/', mes = hoy().slice(0, 7);
+        var total = function (l, campo) { return suma(l, function (x) { return campo ? x[campo] : x.importes.total; }); };
+        var sinEnviar = pres.filter(function (p) { return p.estado === 'redactado'; });
+        var porCaducar = pres.filter(function (p) { return (p.estado === 'enviado' || p.estado === 'revision') && dias(hoy(), p.validoHasta) <= 10; });
+        var enCurso = peds.filter(function (p) { return p.estado === 'pendiente' || p.estado === 'parcial'; }).sort(function (a, b) { return a.entregaPrevista < b.entregaPrevista ? -1 : 1; });
+        var parciales = enCurso.filter(function (p) { return p.estado === 'parcial'; }), retrasados = enCurso.filter(function (p) { return p.entregaPrevista < hoy(); });
+        var facMes = fact.filter(function (f) { return f.fecha.slice(0, 7) === mes; }), facSinEnviar = fact.filter(function (f) { return !f.ultimoEnvio; });
+        var porCobrar = fact.filter(function (f) { return f.estado !== 'pagada'; }), vencidas = fact.filter(function (f) { return f.estado === 'vencida'; });
+        var n = function (k, sing, plur) { return k + ' ' + (k === 1 ? sing : plur); };
+
+        var atencion = [];
+        if (sinEnviar.length) atencion.push(['<b>' + n(sinEnviar.length, 'presupuesto', 'presupuestos') + ' sin enviar</b> al cliente<small>' + sinEnviar.map(function (p) { return p.id; }).join(', ') + ' · ' + euros(total(sinEnviar)) + '</small>', BASE + 'presupuestos/', 'Enviar']);
+        if (facSinEnviar.length) atencion.push(['<b>' + n(facSinEnviar.length, 'factura', 'facturas') + ' sin enviar</b><small>' + facSinEnviar.map(function (f) { return f.id; }).join(', ') + ' · ' + euros(total(facSinEnviar, 'total')) + '</small>', BASE + 'facturas/', 'Enviar']);
+        if (vencidas.length) atencion.push(['<b>' + n(vencidas.length, 'factura vencida', 'facturas vencidas') + '</b> sin cobrar<small>' + vencidas.map(function (f) { return f.id + ' · ' + esc(f.cliente.nombre); }).join(', ') + ' · ' + euros(total(vencidas, 'total')) + '</small>', BASE + 'facturas/', 'Ver']);
+        porCaducar.forEach(function (p) { atencion.push(['<b>' + p.id + '</b> caduca el ' + fecha(p.validoHasta) + ' sin respuesta<small>' + esc(p.cliente.nombre) + ' · ' + euros(p.importes.total) + '</small>', BASE + 'presupuestos/', 'Ver']); });
+        retrasados.forEach(function (p) { atencion.push(['<b>' + p.id + '</b> (' + esc(p.proveedor.nombre) + ') con la entrega retrasada<small>Prevista el ' + fecha(p.entregaPrevista) + '</small>', PP + 'detalle/?id=' + p.id, 'Ver']); });
+        parciales.forEach(function (p) { atencion.push(['<b>' + p.id + '</b> (' + esc(p.proveedor.nombre) + ') con recepción parcial<small>' + p.unidadesRecibidas + ' de ' + p.unidadesPedidas + ' uds. recibidas · resto previsto el ' + fecha(p.entregaPrevista) + '</small>', PP + 'detalle/?id=' + p.id, 'Recibir']); });
+
+        var movimientos = [];
+        pres.forEach(function (p) { p.envios.forEach(function (e) { movimientos.push({ fecha: e.fecha, texto: 'Presupuesto <b>' + p.id + '</b> enviado a ' + esc(p.cliente.nombre), demo: e.enDemo }); }); });
+        fact.forEach(function (f) { f.envios.forEach(function (e) { movimientos.push({ fecha: e.fecha, texto: 'Factura <b>' + f.id + '</b> enviada a ' + esc(f.cliente.nombre), demo: e.enDemo }); }); });
+        peds.forEach(function (p) { p.historial.forEach(function (h) { movimientos.push({ fecha: h.fecha, texto: 'Pedido <b>' + p.id + '</b> (' + esc(p.proveedor.nombre) + '): ' + esc(h.texto), demo: h.enDemo }); }); });
+        movimientos.sort(function (a, b) { return a.fecha > b.fecha ? -1 : a.fecha < b.fecha ? 1 : (a.demo ? -1 : 0); }); movimientos = movimientos.slice(0, 6);
+
+        pintar(titulo('Hola, <em>' + esc(u.nombre) + '</em>', esc(u.rol) + ' · ' + esc(u.empresa.nombre) + ' · ' + fechaLarga(hoy())) +
+          '<div class="p-aviso p-aviso--info" role="note"><span><strong>Panel de uso interno.</strong> Demo con datos ficticios: nada de lo que hagas aquí se envía a nadie.</span></div>' +
+          '<div class="p-resumen">' +
+          '<a href="' + BASE + 'presupuestos/"><span>Presupuestos sin enviar</span><strong>' + sinEnviar.length + '</strong><em>' + (sinEnviar.length ? euros(total(sinEnviar)) + ' pendientes de salir' : 'Todo enviado') + '</em></a>' +
+          '<a href="' + PP + '"><span>Pedidos a proveedores en curso</span><strong>' + enCurso.length + '</strong><em>' + (parciales.length ? n(parciales.length, 'con recepción parcial', 'con recepción parcial') : enCurso.length ? 'Próxima entrega: ' + fecha(enCurso[0].entregaPrevista) : 'Ninguno en curso') + '</em></a>' +
+          '<a class="g-kpi--euros" href="' + BASE + 'facturas/"><span>Facturación de ' + MESES[parseInt(mes.slice(5), 10) - 1] + '</span><strong>' + eurosEnteros(total(facMes, 'total')) + '</strong><em>' + n(facMes.length, 'factura emitida', 'facturas emitidas') + (facSinEnviar.length ? ', ' + facSinEnviar.length + ' sin enviar' : '') + '</em></a>' +
+          '<a class="g-kpi--euros" href="' + BASE + 'facturas/"><span>Pendiente de cobro</span><strong>' + eurosEnteros(total(porCobrar, 'total')) + '</strong><em>' + (vencidas.length ? n(vencidas.length, 'factura vencida', 'facturas vencidas') + ' (' + eurosEnteros(total(vencidas, 'total')) + ')' : 'Ninguna vencida') + '</em></a></div>' +
+          '<div class="p-rejilla p-rejilla--2" style="margin-top:1rem">' +
+          '<div class="p-panel"><h2>Necesita atención</h2>' + (atencion.length ? '<ul class="g-cortas">' + atencion.map(function (a) { return '<li><span>' + a[0] + '</span><a href="' + a[1] + '">' + a[2] + '</a></li>'; }).join('') + '</ul>' : '<p class="g-ok">Todo al día.</p>') + '</div>' +
+          '<div class="p-panel"><h2>Próximas entregas de material</h2>' + (enCurso.length ? '<ul class="g-cortas">' + enCurso.slice(0, 5).map(function (p) {
+            var pct = p.unidadesPedidas ? Math.round(p.unidadesRecibidas * 100 / p.unidadesPedidas) : 0;
+            return '<li><span><b>' + fecha(p.entregaPrevista) + '</b> · ' + esc(p.proveedor.nombre) + '<small>' + p.id + ' · ' + esc(p.destino.nombre) + '</small></span><a href="' + PP + 'detalle/?id=' + p.id + '">' + p.id + '</a>' +
+              '<div class="g-progreso" role="img" aria-label="Recibidas ' + p.unidadesRecibidas + ' de ' + p.unidadesPedidas + ' unidades"><span><i style="width:' + pct + '%"></i></span><span>' + p.unidadesRecibidas + ' / ' + p.unidadesPedidas + ' uds.</span></div></li>';
+          }).join('') + '</ul>' : '<p class="g-ok">No hay pedidos de material en curso.</p>') + '</div></div>' +
+          '<div class="p-panel" style="margin-top:1rem"><h2>Últimos movimientos</h2><ol class="p-historial">' + movimientos.map(function (x) { return '<li><time datetime="' + x.fecha + '">' + fecha(x.fecha) + (x.demo ? ' · en esta sesión' : '') + '</time>' + x.texto + '</li>'; }).join('') + '</ol></div>' +
+          '<p class="p-propuesta">en el panel real estos indicadores saldrían del sistema de gestión (presupuestos, contabilidad y compras) y podrían añadirse la carga de fabricación por semana y las instalaciones programadas.</p>');
+      });
     },
 
     presupuestos: function (u) {
