@@ -17,6 +17,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 WEB = RAIZ / "web"
 VISTAS = {"360": (360, 800), "390": (390, 844), "414": (414, 896), "horizontal": (844, 390)}
 DETALLE = {"presupuestos": "PR-2026-0412", "pedidos": "PE-2026-0587", "incidencias": "IN-2026-0044"}  # ids de la demo
+DEMOS = {"/area-clientes/": "seppala-demo-sesion", "/gestion/": "seppala-gestion-sesion"}  # demos con acceso simulado: clave de sesión
 
 JS = r"""
 () => {
@@ -79,8 +80,9 @@ def main():
                 pag.goto(base + ruta, wait_until="networkidle")
                 # estado estable: el visitante ya ha decidido sobre las cookies (el aviso tapa el pie hasta entonces)
                 pag.evaluate("try { localStorage.setItem('seppala-cookies-terceros', 'no') } catch (e) {}; var c = document.getElementById('cookies'); if (c) c.hidden = true")
-                if ruta.startswith("/area-clientes/") and ruta != "/area-clientes/":  # la demo redirige al acceso sin sesión
-                    pag.evaluate("try { sessionStorage.setItem('seppala-demo-sesion', '1'); localStorage.setItem('seppala-demo-sesion', '1') } catch (e) {}")
+                demo = [d for d in DEMOS if ruta.startswith(d) and ruta != d]
+                if demo:  # las demos redirigen al acceso sin sesión
+                    pag.evaluate("try { sessionStorage.setItem('%s', '1'); localStorage.setItem('%s', '1') } catch (e) {}" % (DEMOS[demo[0]], DEMOS[demo[0]]))
                     sufijo = "?id=" + DETALLE.get(ruta.split("/")[2], "") if "detalle" in ruta else ""
                     pag.goto(base + ruta + sufijo, wait_until="networkidle")
                 r = pag.evaluate(JS); tap = pag.evaluate(JS_FIJOS)

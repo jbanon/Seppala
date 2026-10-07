@@ -1,0 +1,18 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": {
+  "nombre": "Usuario Demo",
+  "rol": "Administración",
+  "email": "usuario@seppala-demo.example",
+  "ultimoAcceso": "2026-10-07",
+  "empresa": {
+   "nombre": "Aluminios Seppala, S.A.",
+   "telefono": "91 830 05 43",
+   "email": "administracion@aluminioseppala.com"
+  }
+ }
+}

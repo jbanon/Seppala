@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Aluminios Seppala — DEMO del panel de gestión interna (/gestion/, uso del personal).
+   Reutiliza el marco visual del área de clientes (/area-clientes/portal.css: franja de
+   demo, cabecera, navegación, paneles, pastillas, botones, acceso) sobre /css/estilo.css.
+   Aquí va solo lo propio de esta sección. Mobile first. Datos ficticios.
+   ========================================================================== */
+
+/* Franja de demo: el punto en celeste la distingue de la del área de clientes (azul) */
+body.gestion .franja-demo::before { background: var(--celeste); }
+
+/* Cabecera: nombre y rol de quien ha entrado */
+.p-usuario__rol { font-weight: 400; color: var(--gris-medio); }
+
+/* Navegación: cuatro secciones (la barra inferior del área de clientes tiene cinco) y
+   etiqueta corta de «Pedidos a proveedores» en la barra inferior */
+.g-nav__corto { display: none; }
+@media (max-width: 59.99em) {
+  body.gestion .p-nav ul { grid-template-columns: repeat(4, 1fr); }
+  .g-nav__corto { display: inline; }
+  .g-nav__largo { display: none; }
+}
+
+/* Inicio: accesos a las secciones */
+.g-accesos { display: grid; gap: 1rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+@media (min-width: 48em) { .g-accesos { grid-template-columns: repeat(3, 1fr); } }
+.g-acceso { display: grid; gap: 0.75rem; align-content: start; min-height: 100%; padding: clamp(1.25rem, 3vw, 1.75rem); background: var(--papel); border: 1px solid var(--linea); border-radius: var(--radio); text-decoration: none; color: inherit; transition: border-color 0.2s; }
+.g-acceso:hover { border-color: var(--tinta); }
+.g-acceso svg { width: 2rem; height: 2rem; fill: none; stroke: var(--azul-ui); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.g-acceso h2 { font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 1.8rem); font-weight: 400; line-height: 1.15; margin: 0; transition: color 0.2s; }
+.g-acceso:hover h2 { color: var(--azul-ui); }
+.g-acceso p { margin: 0; font-size: 0.9375rem; }
+.g-acceso__pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--linea); }
+
+/* Etiqueta discreta de estado de la propia demo («En construcción») */
+.g-etiqueta { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.6rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gris-medio); border: 1px dashed #8a969b; border-radius: var(--radio); white-space: nowrap; }
+
+/* Pantalla o bloque aún no construido en la demo */
+.g-construccion { display: grid; gap: 1rem; justify-items: start; max-width: 42rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); padding: clamp(1.25rem, 4vw, 2.25rem); background: var(--papel); border: 1px dashed #8a969b; border-radius: var(--radio); }
+.g-construccion h2 { font-family: var(--sans); font-size: 1.0625rem; font-weight: 600; margin: 0; }
+.g-construccion p { margin: 0; }

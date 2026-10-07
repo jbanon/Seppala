@@ -15,6 +15,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 WEB, SALIDA = RAIZ / "web", RAIZ / "referencia" / "capturas"
 ANCHOS = {"movil": (390, 844), "escritorio": (1440, 900)}
 DETALLE = {"presupuestos": "PR-2026-0412", "pedidos": "PE-2026-0587", "incidencias": "IN-2026-0044"}  # ids de la demo
+DEMOS = {"/area-clientes/": "seppala-demo-sesion", "/gestion/": "seppala-gestion-sesion"}  # demos con acceso simulado: clave de sesión
 
 
 def rutas():
@@ -41,8 +42,9 @@ def main():
             pag.on("response", lambda r: errores.append(f"{r.status} {r.url}") if r.status >= 400 else None)
             for ruta in sys.argv[1:] or rutas():
                 pag.goto(base + ruta, wait_until="networkidle")
-                if ruta.startswith("/area-clientes/") and ruta != "/area-clientes/":  # demo del portal: sesión simulada
-                    pag.evaluate("sessionStorage.setItem('seppala-demo-sesion', '1')")
+                demo = [d for d in DEMOS if ruta.startswith(d) and ruta != d]
+                if demo:  # demos con acceso simulado: sesión
+                    pag.evaluate("sessionStorage.setItem('%s', '1')" % DEMOS[demo[0]])
                     sufijo = "?id=" + DETALLE.get(ruta.split("/")[2], "") if "detalle" in ruta else ""
                     pag.goto(base + ruta + sufijo, wait_until="networkidle")
                 pag.evaluate("try { localStorage.setItem('seppala-cookies-terceros', 'no') } catch (e) {}")  # sin banner en las capturas
