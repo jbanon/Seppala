@@ -93,7 +93,7 @@
 
 - [x] **Subdominio de pruebas**: `seppala.winsoft.es` (confirmado por el responsable, 07/10/2026). `herramientas/publicar.sh` copia a `/var/www/seppala/`; configuración en `despliegue/seppala.winsoft.es.nginx.conf` (ver `despliegue/LEEME-despliegue.md` para el alta en el servidor, pendiente de ejecutar los pasos con sudo).
 - [r] **Repositorio remoto en GitHub**: no existe. Decidir si se crea y con qué nombre (ver resumen final).
-- [r] **WebKit**: instalar dependencias con sudo y pasar `movil.py --motor webkit`.
+- [r] **WebKit**: intentado el 07/10/2026 (tarea 0001 del arquitecto). El navegador WebKit de Playwright ya está descargado (`~/.cache/ms-playwright/webkit-2359`), pero al lanzarlo falla con «Host system is missing dependencies to run browsers» (faltan `libgtk-4.so.1`, `libpangocairo-1.0.so.0`, `libsoup-3.0.so.0`… en total 237 paquetes apt según `playwright install-deps webkit --dry-run`), y `sudo` exige contraseña interactiva (`sudo -n` → «interactive authentication is required»). Lo tiene que ejecutar el responsable: `sudo .venv/bin/playwright install-deps webkit` y después `.venv/bin/python herramientas/movil.py --motor webkit` (apartado 6 sigue en «No probado» hasta entonces).
 - [r] **Servicio de envío del formulario** (cuando el cliente responda 5.1): cambiar el `action` en `web/contacto/index.html`.
 - [r] **Licencias**: imágenes y vídeos de catálogo de Cortizo y PDF de Kömmerling y Saint-Gobain, en uso provisional (ya los usaba la web antigua, salvo los PDF). Confirmar con las marcas o sustituir por material del cliente.
 - [r] Alojamiento final y DNS (7.2 de las preguntas al cliente).
