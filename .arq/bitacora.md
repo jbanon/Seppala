@@ -110,3 +110,28 @@ Decisión y alcance completos en [[ADR-0003-panel-gestion-interna-demo]]. Tareas
 [[0002-base-panel-gestion]], [[0003-envio-email-presupuestos-facturas]], [[0004-pedidos-proveedores-demo]],
 [[0005-panel-de-mando-demo]] (backlog BL-0012 a BL-0015). No se ha tocado código de producción: solo lectura
 de Marchante (sin copiar nada) y escritura dentro de `.arq/`.
+
+---
+
+## 2026-10-07 — Revisión de las tareas 0001–0005 y confirmación del usuario sobre el panel de mando
+
+El programador reportó las 5 tareas en cola (commits `a600ae1`, `f1bdb4b`, `09ce7b1`, `474bb06`, `40ff9b5`).
+Se verificó **sin fiarse solo del informe**: se volvió a ejecutar `herramientas/enlaces.py` (37 páginas, 0
+problemas) y `herramientas/movil.py /gestion/inicio/` (0 problemas) de forma independiente, se comprobó que
+`/gestion/` está excluido de `sitemap.xml` y bloqueado en `robots.txt`, y se leyó el apartado nuevo "3 bis"
+de `CHECKLIST.md`. Todo coincide con lo que reportó el programador.
+
+La tarea 0001 (WebKit) sigue bloqueada por falta de `sudo`, documentado correctamente en su informe en vez
+de omitirse o simularse — buena práctica, coherente con [[trampas]].
+
+En paralelo, el usuario escribió (tras un primer mensaje interrumpido sobre un pedido de otro sistema, ajeno
+a este proyecto, que no se ha tenido en cuenta por no ser aplicable aquí): *"Es muy interesante la parte del
+panel de mando. Aunque sea simplificado tenemos que incluir esa parte también"*. Coincide exactamente con lo
+ya decidido y hecho en la tarea 0005 (panel de mando simplificado, sin el kanban de Marchante): no hace
+falta ningún cambio de alcance, solo confirmar que ya está.
+
+El informe de la 0005 planteó tres puntos al arquitecto: (1) los textos legales no cubren la segunda demo —
+aceptado, ver [[ADR-0004-textos-legales-segunda-demo]] y tarea [[0006-legal-segunda-demo]]; (2)
+`CHECKLIST.md` §7 tiene una frase obsoleta sobre el remoto de GitHub — se corrige en la misma tarea; (3) sin
+enlace público a `/gestion/` desde el menú o el pie — decisión correcta, se mantiene así (es una demo interna,
+no un destino para visitantes).

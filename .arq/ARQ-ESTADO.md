@@ -1,97 +1,72 @@
 # Estado del proyecto (vista del arquitecto)
 
-> Se reescribe entero en cada revisión. Última revisión: **07/10/2026**, tras primera auditoría completa
-> del repositorio por el ARQUITECTO. Commit auditado: `286d87a` (Goal 9, HEAD de `master`).
+> Se reescribe entero en cada revisión. Última revisión: **07/10/2026**, tras verificar las 5 tareas
+> commiteadas por el programador (0001 a 0005). Commit auditado: `40ff9b5` (Tarea 0005, HEAD de `master`).
 
 ## Resumen
 
-Los 9 Goals de `CLAUDE.md` están hechos y commiteados (10 commits: brief + 9 goals, uno por goal, en
-castellano). La auditoría de esta revisión ha comprobado el repositorio real (`git log`, estructura de
-`web/`, `recursos/`, `herramientas/`, contenido de `CHECKLIST.md`, `PREGUNTAS_CLIENTE.md`,
-`INVESTIGACION.md`) y ha contrastado una muestra de datos técnicos y de empresa contra fuentes externas.
-**No se ha encontrado ninguna desviación del stack ni dato inventado.** Ver detalle en la bitácora
-([[bitacora]]).
+Los 9 Goals de `CLAUDE.md` están hechos (auditados el 07/10/2026, sin desviaciones ni datos inventados, ver
+bitácora). Encima de eso, el usuario pidió una ampliación — el panel de gestión interna, demo de uso del
+personal (ADR-0003) — y el programador ha hecho sus 4 tareas (0002 a 0005); la 0001 (auditoría WebKit) quedó
+documentada como bloqueada por `sudo`, no por el programador. Verificado independientemente (no solo el
+informe): `enlaces.py` 37 páginas 0 problemas, `movil.py` sobre `/gestion/inicio/` 0 problemas, `/gestion/`
+fuera de `sitemap.xml` y bloqueado en `robots.txt`, `CHECKLIST.md` tiene su apartado "3 bis" con el detalle.
+El usuario confirmó explícitamente que quiere el panel de mando aunque sea simplificado — ya está hecho así
+(cuatro indicadores tipo mini-KPI, sin el kanban de fases de Marchante, ver ADR-0003).
 
-## Qué está hecho (verificado, no solo de oído del programador)
+## Qué está hecho
 
-- **Stack correcto**: web estática HTML/CSS/JS sin build; Python solo como herramienta de autoría
-  (`herramientas/*.py`, ejecutadas con `.venv/bin/python`); publicación por `rsync` a una ruta local vía
-  `herramientas/publicar.sh` + `despliegue/aluminioseppala-pruebas.nginx.conf` (nginx estático, sin
-  servidor de aplicación Python). Nada que montar un backend de producción.
-- **28 páginas** (`index.html` por carpeta) + `404.html` + `sitemap.xml` + `robots.txt` + `.htaccess`,
-  cubriendo el alcance mínimo del brief (aluminio, PVC, vidrio, persianas, motorización, mosquiteras,
-  complementos, asesoramiento, trabajos realizados, empresa, contacto, legal/privacidad/cookies), más el
-  área de clientes demo (12 pantallas).
-- **Sin datos inventados** en la muestra verificada externamente: teléfono, email, direcciones (contacto
-  vs. legal), NIF, y las cifras técnicas de Kömmerling RolaPlus (Usb 0,79 W/m²K, 50 dB, clase 4) y Guardian
-  Sun (1,1 W/m²K, 43 % radiación, 70 % luz) coinciden exactamente con las fichas oficiales. El NIF
-  encontrado en el aviso legal antiguo (A83404772) se ha marcado correctamente como pendiente de
-  confirmar por el cliente en vez de darlo por bueno sin más — buena práctica, ver [[trampas]].
-- **`sitemap.xml`/`robots.txt`/canonical apuntan al dominio real** `www.aluminioseppala.com` (no a una URL
-  de pruebas): es el mismo patrón que usa el proyecto de referencia Marchante (sustituirá a la web actual
-  en el mismo dominio), no es un error.
-- **Sin contenido de relleno visible**: el único "PENDIENTE" que queda en `web/` es el `action` del
-  formulario de contacto (`web/contacto/index.html`), gestionado explícitamente por JS y documentado como
-  provisional; no es visible como texto para el usuario.
-- **Herramientas** (`herramientas/LEEME.md`) completas y documentadas: `comunes.py`, `imagenes.py`,
-  `video.py`, `portadas.py`, `enlaces.py`, `movil.py` (incluye `--motor webkit`, aún no ejecutado),
-  `capturas.py`, `publicar.sh`, `importar_antigua.py`, `extraer_textos.py`, `datos_demo.py`, `pdf_demo.py`.
-- **Documentos de gobierno del propio proyecto** al día: `INVESTIGACION.md`, `PREGUNTAS_CLIENTE.md`,
-  `CHECKLIST.md`, `REDIRECCIONES.md`.
+- **Los 9 Goals del brief** (`CLAUDE.md`), verificados el 07/10/2026: stack estático correcto, 28 páginas +
+  área de clientes, sin datos inventados (contrastado con fuentes oficiales), sin contenido de relleno.
+  Detalle completo en la entrada de bitácora de esa fecha.
+- **Repositorio remoto**: `git@github.com:jbanon/Seppala.git`, rama `master`, publicado. BL-0003 cerrado.
+- **Subdominio de pruebas `seppala.winsoft.es`**: configuración lista (`despliegue/seppala.winsoft.es.nginx.conf`,
+  `herramientas/publicar.sh` → `/var/www/seppala`); **falta que el responsable ejecute el alta en el servidor**
+  (pasos con `sudo` en `despliegue/LEEME-despliegue.md`, el arquitecto no puede ejecutarlos). BL-0002 en curso.
+- **Panel de gestión interna (demo), `web/gestion/`** — ampliación pedida el 07/10/2026, ver
+  [[ADR-0003-panel-gestion-interna-demo]]:
+  - Acceso simulado propio, independiente del de `area-clientes/`.
+  - Inicio = panel de mando: 4 indicadores (presupuestos sin enviar, pedidos a proveedores en curso,
+    facturación del mes, pendiente de cobro) calculados de los JSON, no escritos a mano; lista "Necesita
+    atención", próximas entregas, últimos movimientos.
+  - Presupuestos y facturas de 7 clientes ficticios con acción Enviar/Reenviar por email (simulada, sin
+    correo real) y diálogo editable.
+  - Pedidos a proveedores (Cortizo, Kömmerling, Guardian Glass, Saint-Gobain, Somfy, Nice, Gaviota — los
+    proveedores reales de `INVESTIGACION.md`, no los de Marchante): listado con progreso, ficha con
+    recepción simulada, historial con filtros.
+  - Deliberadamente recortado frente a Marchante: sin cálculo de demanda de stock, sin kanban de fases.
+  - `noindex`, fuera de `sitemap.xml`, bloqueado en `robots.txt`, aviso de demo en cada pantalla.
+  - BL-0012 a BL-0015 cerrados. `CHECKLIST.md` tiene su apartado "3 bis".
+
+## Pendiente de este ciclo: textos legales de la segunda demo
+
+El programador señaló en su informe de la 0005 que `web/aviso-legal/` y `web/privacidad/` solo mencionan la
+demo de `area-clientes/`, no la nueva de `/gestion/`. Aceptado como [[ADR-0004-textos-legales-segunda-demo]]:
+tarea [[0006-legal-segunda-demo]] asignada (también corrige una nota obsoleta en `CHECKLIST.md` §7 que decía
+que el remoto de GitHub "no existe", cuando ya se creó). BL-0016.
 
 ## Stack: confirmado, sin cambios (ver [[ADR-0002-conflicto-stack-dotnet]])
 
-El 07/10/2026 el usuario pidió en mitad de esta auditoría pasar el stack a .NET + SQL Server "como el resto
-de proyectos". Se confirmó con él antes de tocar nada: **Seppala sigue siendo web estática**; la migración a
-.NET solo se plantearía en el futuro, si el área de clientes deja de ser una demo y pasa a desarrollo real
-con datos de verdad (registrado sin fecha como BL-0011). No es una tarea actual.
-
-## Repositorio remoto: ya creado y publicado
-
-`git@github.com:jbanon/Seppala.git`, rama `master`, con los 10 commits existentes ya empujados (07/10/2026).
-BL-0003 cerrado.
-
-## Subdominio de pruebas: seppala.winsoft.es (en curso)
-
-El responsable ha dado de alta el DNS de `seppala.winsoft.es` apuntando a este servidor compartido
-(07/10/2026). `despliegue/seppala.winsoft.es.nginx.conf` ya tiene el bloque final (ya no es un placeholder),
-`herramientas/publicar.sh` ya apunta a `/var/www/seppala` por defecto, y `despliegue/LEEME-despliegue.md`
-tiene los pasos de alta. **Falta ejecutar el alta en el servidor** (`mkdir`/`chown` de `/var/www/seppala`,
-copiar el bloque a `/etc/nginx/sites-available/`, habilitarlo y pedir certificado con `certbot`): son
-comandos con `sudo` que requieren contraseña interactiva, que el arquitecto no puede proporcionar. En cuanto
-se ejecuten, publicar con `herramientas/publicar.sh` (no necesita sudo una vez hecho el `chown`). Ver BL-0002.
-
-## Ampliación de alcance: panel de gestión interna (demo) — ver [[ADR-0003-panel-gestion-interna-demo]]
-
-El 07/10/2026 el usuario pidió añadir, **sumando** a `CLAUDE.md` (no sustituyendo nada de los 9 Goals), una
-demo de uso **interno/personal** (no de clientes) inspirada en tres pantallas reales de la app de gestión de
-Marchante (ASP.NET Core, solo mirada para entender función, nunca copiada ni en código ni en datos):
-envío de presupuestos/facturas por email, pedidos a proveedores, y panel de mando. Decisión tomada: nueva
-sección `/gestion/`, hermana de `/area-clientes/`, con su propio acceso demo, deliberadamente simplificada
-frente a la complejidad real de Marchante (sin cálculo de demanda de stock, sin el kanban de fases de
-fabricación) porque el usuario ha pedido priorizar diseño y pocas pantallas muy cuidadas sobre completitud
-funcional. Partida en 4 tareas encadenadas: [[0002-base-panel-gestion]] → 
-[[0003-envio-email-presupuestos-facturas]] → [[0004-pedidos-proveedores-demo]] → 
-[[0005-panel-de-mando-demo]] (BL-0012 a BL-0015).
+Seppala sigue siendo web estática. La migración a .NET + SQL Server solo se plantearía en el futuro, si el
+área de clientes deja de ser una demo y pasa a desarrollo real (BL-0011, sin fecha, no es tarea actual).
 
 ## Qué falta (y de quién depende)
 
-Ver [[backlog]] para la lista con id. Pendiente de alguien externo al programador:
-- **Responsable del proyecto**: ejecutar el alta de `seppala.winsoft.es` (arriba), instalar dependencias de
-  WebKit (necesita `sudo`), confirmar licencias de material de catálogo de fabricantes, alojamiento/DNS
-  final del dominio de producción.
+Ver [[backlog]]. No depende del programador:
+- **Responsable del proyecto**: ejecutar el alta de `seppala.winsoft.es` (BL-0002), instalar dependencias de
+  WebKit (BL-0001, necesita `sudo`), confirmar licencias de material de catálogo de fabricantes (BL-0005),
+  alojamiento/DNS final del dominio de producción (BL-0010).
 - **Cliente**: dirección correcta, NIF y datos registrales, horario, destino del formulario, nombres de
-  sistemas Cortizo/Persycom, revisión legal por gestoría — todo recogido en `PREGUNTAS_CLIENTE.md`.
+  sistemas Cortizo/Persycom, revisión legal por gestoría, y ahora también si quiere ver la demo de gestión y
+  qué proveedores faltan (mosquiteras, lamas) — todo en `PREGUNTAS_CLIENTE.md`.
 
-## Cola de tareas del programador (en este orden)
+## Tarea asignada ahora
 
-1. [[0001-auditoria-webkit]] — ya asignada, la inmediata si no se ha hecho.
-2. [[0002-base-panel-gestion]] → 3. [[0003-envio-email-presupuestos-facturas]] →
-   4. [[0004-pedidos-proveedores-demo]] → 5. [[0005-panel-de-mando-demo]] — ampliación del panel de gestión,
-   pueden empezarse en cuanto 0001 esté hecha o en paralelo si el programador gestiona bien ambos frentes;
-   no se bloquean entre sí salvo por su propio orden interno (cada una depende de la anterior de su cadena).
+[[0006-legal-segunda-demo]] — corta, dos textos legales + una corrección de `CHECKLIST.md`.
 
 ## Próxima revisión
 
-Cuando el programador reporte en `.arq/informes/`, releer el informe + `git diff` del commit
-correspondiente (no fiarse solo del texto del informe), actualizar este fichero y dejar la siguiente tarea.
+Cuando el programador reporte la 0006, releer el informe + `git diff` (no fiarse solo del texto), actualizar
+este fichero. Si no hay más tareas en cola tras eso, el proyecto vuelve a quedar a la espera de respuestas
+externas (cliente/responsable) — revisar `PREGUNTAS_CLIENTE.md` y `CHECKLIST.md` §7/§8 antes de inventar una
+tarea nueva, siguiendo [[ADR-0001-criterio-priorizacion-tareas]].
