@@ -155,3 +155,15 @@ y commiteado antes de pasar al siguiente)
   que es una demostración.
 - Commits frecuentes y descriptivos en castellano a medida que avanzas, no un único commit
   gigante al final.
+
+
+## Estado del proyecto (07/10/2026)
+Los 9 goals están hechos y commiteados. Para seguir trabajando:
+- `CHECKLIST.md`: estado de cada punto, decisiones tomadas y pendientes (cliente y responsable).
+- `PREGUNTAS_CLIENTE.md`: lo que el cliente debe confirmar; `INVESTIGACION.md`: fuentes de cada dato.
+- `herramientas/LEEME.md`: qué hace cada herramienta. Tras tocar menú o pie: `comunes.py`; antes de cada commit
+  de páginas: `enlaces.py` y `movil.py`; para revisar: `capturas.py`.
+- Las páginas de `web/` son HTML completo y la fuente de verdad (no hay compilación). La demo del portal se
+  genera con `datos_demo.py` + `pdf_demo.py` y la pinta `web/area-clientes/portal.js`.
+- Publicación: `herramientas/publicar.sh` a la carpeta local de pruebas; el subdominio público y el remoto de
+  GitHub siguen pendientes de decidir con el responsable.

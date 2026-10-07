@@ -5,7 +5,9 @@ www.aluminioseppala.com. Para terminarlas sin inventar nada necesitamos que nos 
 No hace falta contestar todo de golpe: las preguntas van por temas y, dentro de cada tema, de más a menos
 importante. Cuando damos una recomendación, es lo que haremos si no nos decís otra cosa.
 
-Las referencias a «la web antigua» son a la actual. Fecha de este documento: 07/10/2026.
+Las referencias a «la web antigua» son a la actual. Fecha de este documento: 07/10/2026. Os pasaremos la
+dirección de pruebas para que veáis la web nueva y la demostración del área de clientes (se entra con cualquier
+usuario y contraseña; todos los datos son inventados).
 
 ---
 
@@ -77,6 +79,16 @@ azufre, hoy en desuso). Lo hemos dejado en «argón o kriptón». ¿Correcto?
 **2.9. Maquinaria.** El texto de la ayuda cita un centro de mecanizado Schirmer BAZ-G4 y una soldadora Disomaq
 SL4FF EVO. ¿Queréis que la página «Empresa» hable de vuestra fábrica y maquinaria con más detalle (y fotos)?
 
+**2.10. Servicios incluidos.** Para no afirmar nada que no sea cierto, la web nueva no dice si retiráis la
+carpintería antigua en las reformas, si hacéis acabados anodizados en aluminio ni si trabajáis sobre mediciones
+que os pase el cliente profesional. Decidnos qué de esto ofrecéis y lo añadimos.
+
+**2.11. Ámbito de instalación.** ¿Instaláis solo en Alcalá de Henares y alrededores, en toda la Comunidad de
+Madrid o también fuera? Lo pondremos en contacto y en la página de asesoramiento.
+
+**2.12. Rejas y estores.** La web antigua los mencionaba de pasada («persianas, vidrios, rejas o stores»). Los hemos
+dejado como complementos a petición en la página de complementos. ¿Queréis que tengan apartado propio?
+
 ## 3. Fotos y material
 
 **3.1. Fotos de obras vuestras.** Todas las fotos de la web antigua son renders e imágenes de catálogo del
@@ -90,6 +102,10 @@ original (AI, SVG, PDF o PNG grande con fondo transparente)? Lo necesitamos para
 
 **3.3. Los dos vídeos** (aislamiento térmico y acústico) pesan 34 y 23 MB. ¿Son vuestros o del fabricante?
 ¿Podemos seguir usándolos? Los hemos reducido para la web; si tenéis una versión mejor, mejor.
+
+**3.5. Mapa.** El mapa de Google de la web antigua apunta a la zona del polígono (28806), no a Calle Portugal, 16.
+Lo hemos mantenido tal cual, y solo se carga si el visitante acepta las cookies de Google. Confirmad qué ubicación
+debe mostrar (va ligado a la pregunta 1.1).
 
 **3.4. Catálogos y fichas.** La web antigua no tiene ningún PDF. Si queréis una sección de descargas (catálogos
 Cortizo, fichas de vidrio, manuales de persianas), pasadnos los que uséis con clientes.
