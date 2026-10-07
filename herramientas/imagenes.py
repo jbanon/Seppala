@@ -103,7 +103,7 @@ def main():
     for dest, orig in FOTOS.items():
         im = ImageOps.exif_transpose(Image.open(REC / "imagenes" / orig)).convert("RGB")
         for w in ANCHOS:
-            if w > im.width * 1.25:  # no se inventan tamaños mayores que el original
+            if w > im.width * 1.25 and w != ANCHOS[0]:  # no se inventan tamaños mayores que el original (el menor siempre se genera)
                 continue
             real = min(w, im.width)
             guardar(im.resize((real, round(im.height * real / im.width)), Image.LANCZOS), IMG / f"{dest}-{w}.webp")

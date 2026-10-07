@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /estilo.html
+Disallow: /area-clientes/
+
+Sitemap: https://www.aluminioseppala.com/sitemap.xml

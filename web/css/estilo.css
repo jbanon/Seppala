@@ -208,10 +208,10 @@ body.menu-abierto .barra-contacto { display: none; }
 .migas { margin: 0 0 1.5rem; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0 0.35rem; font-size: 0.875rem; color: var(--gris-medio); }
 .migas li { display: inline-flex; align-items: center; }
 .migas li + li::before { content: "/"; margin-right: 0.35rem; color: var(--gris); }
-.migas a, .migas li[aria-current] { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.migas a, .migas li[aria-current] { display: inline-flex; align-items: center; min-height: 2.75rem; min-width: 2.75rem; }
 .migas a { text-decoration: none; }
 .migas a:hover { color: var(--azul-ui); }
-@media (min-width: 80em) { .migas { gap: 0.4rem 0.6rem; margin-bottom: 2rem; } .migas a, .migas li[aria-current] { min-height: 0; } .migas li + li::before { margin-right: 0.6rem; } }
+@media (min-width: 80em) { .migas { gap: 0.4rem 0.6rem; margin-bottom: 2rem; } .migas a, .migas li[aria-current] { min-height: 0; min-width: 0; } .migas li + li::before { margin-right: 0.6rem; } }
 .figura { margin: 0 0 2.5rem; }
 .figura img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .figura figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--gris-medio); }
