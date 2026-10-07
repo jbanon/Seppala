@@ -154,8 +154,8 @@ facturas?** Es lo que hace la demo; decidnos qué sobra y qué falta.
 
 ## 7. Publicación
 
-**7.1. Dominio de pruebas.** Antes de publicar la web en un subdominio de pruebas (tipo
-pruebas.aluminioseppala.com o uno nuestro) necesitamos que lo confirméis.
+**7.1. Dominio de pruebas.** ~~Antes de publicar la web en un subdominio de pruebas... necesitamos que lo
+confirméis.~~ Resuelto: el responsable ha dado de alta `seppala.winsoft.es` para revisión (07/10/2026).
 
 **7.2. Alojamiento final.** ¿La web nueva se publicará en el mismo alojamiento que la actual? ¿Quién lo
 gestiona (vosotros, Clicka2)? Nos hace falta el acceso o un contacto para el cambio.

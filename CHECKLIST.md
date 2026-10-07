@@ -91,7 +91,7 @@
 
 ## 7. Pendiente del responsable del proyecto
 
-- [r] **Subdominio de pruebas**: `herramientas/publicar.sh` copia a `/var/www/aluminioseppala-pruebas/` (hay que crear la carpeta) y `despliegue/aluminioseppala-pruebas.nginx.conf` tiene el `server_name` por decidir. No se ha publicado nada en público.
+- [x] **Subdominio de pruebas**: `seppala.winsoft.es` (confirmado por el responsable, 07/10/2026). `herramientas/publicar.sh` copia a `/var/www/seppala/`; configuración en `despliegue/seppala.winsoft.es.nginx.conf` (ver `despliegue/LEEME-despliegue.md` para el alta en el servidor, pendiente de ejecutar los pasos con sudo).
 - [r] **Repositorio remoto en GitHub**: no existe. Decidir si se crea y con qué nombre (ver resumen final).
 - [r] **WebKit**: instalar dependencias con sudo y pasar `movil.py --motor webkit`.
 - [r] **Servicio de envío del formulario** (cuando el cliente responda 5.1): cambiar el `action` en `web/contacto/index.html`.
