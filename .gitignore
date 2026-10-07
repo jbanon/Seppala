@@ -1,0 +1,7 @@
+antigua/
+.venv/
+__pycache__/
+.DS_Store
+Thumbs.db
+referencia/capturas/*.png
+referencia/capturas/movil/*.png
