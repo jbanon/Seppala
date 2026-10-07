@@ -69,3 +69,44 @@ publicados en GitHub. BL-0003 cerrado.
 **Aprendizaje para [[trampas]]:** cuando llega una instrucción que contradice el brief de un proyecto ya
 avanzado, parar y preguntar en vez de ejecutar, incluso si la instrucción es corta y suena tajante — aquí
 evitó descartar sin necesidad 9 Goals completos y verificados.
+
+---
+
+## 2026-10-07 — Subdominio seppala.winsoft.es: configuración de nginx
+
+El usuario redirigió el DNS de `seppala.winsoft.es` a este servidor (compartido con otras webs:
+`clientesmarchante.winsoft.es`, `gd.winsoft.es`, etc.) y pidió configurar nginx para verlo ahí. Se auditó la
+configuración real del servidor (`/etc/nginx/sites-available/`, patrón Certbot ya usado en los otros sitios)
+en vez de inventar una configuración genérica, y se adaptó `despliegue/seppala.winsoft.es.nginx.conf`
+(renombrado desde el placeholder `aluminioseppala-pruebas.nginx.conf`) siguiendo exactamente el patrón de
+`clientesmarchante.conf` (root propio, `noindex` por ser subdominio de revisión, logs propios, a la espera
+de que Certbot añada HTTPS). `herramientas/publicar.sh` actualizado a `/var/www/seppala`.
+
+No se pudo completar el alta en el servidor: `sudo` requiere contraseña interactiva que no se puede dar por
+este medio (confirmado con `sudo -n`; solo hay `NOPASSWD` para `nginx -t`, `systemctl reload nginx` y dos
+servicios concretos, no para crear ficheros en `/etc/nginx/sites-available/` ni para `certbot`). Se dejaron
+los comandos exactos para que el responsable los ejecute él mismo (ver `despliegue/LEEME-despliegue.md`).
+Commits `8b62b5e` y siguientes.
+
+**Aprendizaje para [[trampas]]:** en este servidor, antes de escribir una configuración de nginx desde cero,
+mirar cómo están montados los sitios ya existentes (`/etc/nginx/sites-available/`) — hay un patrón
+establecido (Certbot, `/var/www/<nombre-subdominio>`, logs propios) que conviene seguir para no desentonar
+con el resto de webs que comparten el servidor.
+
+---
+
+## 2026-10-07 — Ampliación: panel de gestión interna (demo)
+
+El usuario pidió sumar al alcance de `CLAUDE.md` una demo de uso interno (no de clientes) inspirada en tres
+pantallas reales de la aplicación de gestión de Marchante (`GestionMarchante`, ASP.NET Core/C#, un stack
+totalmente distinto): envío de presupuestos/facturas por email, pedidos a proveedores, y panel de mando.
+Se leyó el marcado (`.cshtml`) de las pantallas señaladas — solo para entender qué información y qué
+acciones ofrece cada una, nunca su código ni sus datos de ejemplo — y se tradujo a un alcance deliberadamente
+más simple para Seppala, priorizando diseño sobre completitud (como pidió el usuario): se descarta el cálculo
+de demanda de `GenerarPedido.cshtml` y el kanban de fases de `Tablero.cshtml`/`_TarjetaPedido.cshtml` por ser
+la parte más compleja y menos visual, y específica de cómo fabrica Marchante.
+
+Decisión y alcance completos en [[ADR-0003-panel-gestion-interna-demo]]. Tareas dejadas en cola, encadenadas:
+[[0002-base-panel-gestion]], [[0003-envio-email-presupuestos-facturas]], [[0004-pedidos-proveedores-demo]],
+[[0005-panel-de-mando-demo]] (backlog BL-0012 a BL-0015). No se ha tocado código de producción: solo lectura
+de Marchante (sin copiar nada) y escritura dentro de `.arq/`.

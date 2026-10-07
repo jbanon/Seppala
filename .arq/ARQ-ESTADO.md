@@ -51,17 +51,45 @@ con datos de verdad (registrado sin fecha como BL-0011). No es una tarea actual.
 `git@github.com:jbanon/Seppala.git`, rama `master`, con los 10 commits existentes ya empujados (07/10/2026).
 BL-0003 cerrado.
 
+## Subdominio de pruebas: seppala.winsoft.es (en curso)
+
+El responsable ha dado de alta el DNS de `seppala.winsoft.es` apuntando a este servidor compartido
+(07/10/2026). `despliegue/seppala.winsoft.es.nginx.conf` ya tiene el bloque final (ya no es un placeholder),
+`herramientas/publicar.sh` ya apunta a `/var/www/seppala` por defecto, y `despliegue/LEEME-despliegue.md`
+tiene los pasos de alta. **Falta ejecutar el alta en el servidor** (`mkdir`/`chown` de `/var/www/seppala`,
+copiar el bloque a `/etc/nginx/sites-available/`, habilitarlo y pedir certificado con `certbot`): son
+comandos con `sudo` que requieren contraseña interactiva, que el arquitecto no puede proporcionar. En cuanto
+se ejecuten, publicar con `herramientas/publicar.sh` (no necesita sudo una vez hecho el `chown`). Ver BL-0002.
+
+## Ampliación de alcance: panel de gestión interna (demo) — ver [[ADR-0003-panel-gestion-interna-demo]]
+
+El 07/10/2026 el usuario pidió añadir, **sumando** a `CLAUDE.md` (no sustituyendo nada de los 9 Goals), una
+demo de uso **interno/personal** (no de clientes) inspirada en tres pantallas reales de la app de gestión de
+Marchante (ASP.NET Core, solo mirada para entender función, nunca copiada ni en código ni en datos):
+envío de presupuestos/facturas por email, pedidos a proveedores, y panel de mando. Decisión tomada: nueva
+sección `/gestion/`, hermana de `/area-clientes/`, con su propio acceso demo, deliberadamente simplificada
+frente a la complejidad real de Marchante (sin cálculo de demanda de stock, sin el kanban de fases de
+fabricación) porque el usuario ha pedido priorizar diseño y pocas pantallas muy cuidadas sobre completitud
+funcional. Partida en 4 tareas encadenadas: [[0002-base-panel-gestion]] → 
+[[0003-envio-email-presupuestos-facturas]] → [[0004-pedidos-proveedores-demo]] → 
+[[0005-panel-de-mando-demo]] (BL-0012 a BL-0015).
+
 ## Qué falta (y de quién depende)
 
-Ver [[backlog]] para la lista con id. En resumen, todo lo que queda **no depende del programador** sino de:
-- **Responsable del proyecto**: subdominio de pruebas, instalar dependencias de WebKit (necesita `sudo`),
-  confirmar licencias de material de catálogo de fabricantes, alojamiento/DNS final.
+Ver [[backlog]] para la lista con id. Pendiente de alguien externo al programador:
+- **Responsable del proyecto**: ejecutar el alta de `seppala.winsoft.es` (arriba), instalar dependencias de
+  WebKit (necesita `sudo`), confirmar licencias de material de catálogo de fabricantes, alojamiento/DNS
+  final del dominio de producción.
 - **Cliente**: dirección correcta, NIF y datos registrales, horario, destino del formulario, nombres de
   sistemas Cortizo/Persycom, revisión legal por gestoría — todo recogido en `PREGUNTAS_CLIENTE.md`.
 
-La única pieza de calidad técnica pendiente que **sí puede ejecutar el programador sin esperar a nadie**
-es la auditoría móvil con motor WebKit (Safari de iPhone), que solo falta por una dependencia del sistema.
-Es la tarea asignada ahora: [[0001-auditoria-webkit]].
+## Cola de tareas del programador (en este orden)
+
+1. [[0001-auditoria-webkit]] — ya asignada, la inmediata si no se ha hecho.
+2. [[0002-base-panel-gestion]] → 3. [[0003-envio-email-presupuestos-facturas]] →
+   4. [[0004-pedidos-proveedores-demo]] → 5. [[0005-panel-de-mando-demo]] — ampliación del panel de gestión,
+   pueden empezarse en cuanto 0001 esté hecha o en paralelo si el programador gestiona bien ambos frentes;
+   no se bloquean entre sí salvo por su propio orden interno (cada una depende de la anterior de su cadena).
 
 ## Próxima revisión
 

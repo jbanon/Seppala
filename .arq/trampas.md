@@ -52,3 +52,26 @@ no un cambio inmediato — ver [[ADR-0002-conflicto-stack-dotnet]]. Si se hubier
 habría descartado sin necesidad un trabajo completo y verificado. Regla: cuando una instrucción nueva choca
 con el brief y el coste de equivocarse es alto (reescribir en vez de seguir), parar y confirmar, aunque la
 instrucción sea corta y suene definitiva.
+
+## Mirar proyectos reales de inspiración (Marchante) solo para función, nunca para implementación ni datos
+
+Cuando una ampliación pide "inspirarse" en una pantalla real de otro proyecto (p. ej. `GestionMarchante`,
+ASP.NET Core/C#, un stack distinto al de Seppala), lo único que se mira es qué información se muestra y qué
+acciones ofrece — nunca el código ni los datos de ejemplo. Además, la complejidad real de un sistema de
+producción interno (cálculo de demanda de stock, kanban de fases de fabricación) casi nunca encaja en una
+demo: si el encargo prioriza diseño sobre completitud, es señal de recortar esa complejidad explícitamente en
+el alcance (ADR), no de trasladarla tal cual. Ver [[ADR-0003-panel-gestion-interna-demo]].
+
+## Antes de escribir una configuración de servidor desde cero, mirar cómo están montados los sitios vecinos
+
+En un servidor compartido con varias webs (`/etc/nginx/sites-available/`), hay un patrón ya establecido
+(Certbot, convención de rutas en `/var/www/`, logs por sitio). Seguirlo en vez de inventar una configuración
+genérica evita desentonar y reduce el riesgo de romper algo al lado. Ver bitácora del 07/10/2026 sobre
+`seppala.winsoft.es`.
+
+## `sudo` con contraseña no se puede ejecutar desde aquí
+
+Este entorno solo tiene `NOPASSWD` para un puñado de comandos muy concretos (comprobados con `sudo -n -l`:
+`nginx -t`, `systemctl reload nginx`, y el restart/status de dos servicios). Cualquier otra acción con sudo
+(crear ficheros en `/etc/`, `certbot`, crear carpetas en `/var/www/`) hay que pedírsela al responsable para
+que la ejecute él mismo con el prefijo `!`, dejando los comandos exactos preparados.
