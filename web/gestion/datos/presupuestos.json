@@ -1,0 +1,561 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "PR-2026-0418",
+   "fecha": "2026-10-06",
+   "validoHasta": "2026-11-05",
+   "estado": "redactado",
+   "cliente": {
+    "codigo": "C-02233",
+    "nombre": "Laura Ejemplo García (particular ficticio)",
+    "tipo": "Particular",
+    "contacto": "Laura",
+    "email": "laura@particular-demo.example",
+    "localidad": "Pueblo Demo"
+   },
+   "obra": {
+    "nombre": "Reforma de piso Avda. Supuesta, 8, 3.º B (obra ficticia)",
+    "localidad": "Pueblo Demo"
+   },
+   "resumen": "7 uds. · PVC abisagrada 70 mm, Mosquitera enrollable vertical",
+   "unidades": 7,
+   "importes": {
+    "bruto": 2645.0,
+    "descuentoPct": 0,
+    "descuento": 0.0,
+    "baseImponible": 2645.0,
+    "ivaPct": 21,
+    "iva": 555.45,
+    "total": 3200.45
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": []
+  },
+  {
+   "id": "PR-2026-0417",
+   "fecha": "2026-10-05",
+   "validoHasta": "2026-11-04",
+   "estado": "redactado",
+   "cliente": {
+    "codigo": "C-01542",
+    "nombre": "Construcciones Modelo Henares, S.L. (cliente ficticio)",
+    "tipo": "Constructora",
+    "contacto": "Dpto. de compras",
+    "email": "obras@constructora-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Promoción 12 viviendas C/ Figurada (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "resumen": "84 uds. · PVC abisagrada 84 mm, PVC corredera",
+   "unidades": 84,
+   "importes": {
+    "bruto": 61920.0,
+    "descuentoPct": 10,
+    "descuento": 6192.0,
+    "baseImponible": 55728.0,
+    "ivaPct": 21,
+    "iva": 11702.88,
+    "total": 67430.88
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": []
+  },
+  {
+   "id": "PR-2026-0416",
+   "fecha": "2026-10-02",
+   "validoHasta": "2026-11-01",
+   "estado": "redactado",
+   "cliente": {
+    "codigo": "C-02251",
+    "nombre": "Carlos Ejemplar Ruiz (particular ficticio)",
+    "tipo": "Particular",
+    "contacto": "Carlos",
+    "email": "carlos@particular-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Cerramiento de terraza en ático (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "resumen": "4 uds. · Aluminio corredera RPT, Aluminio abisagrada RPT y más",
+   "unidades": 4,
+   "importes": {
+    "bruto": 5170.0,
+    "descuentoPct": 0,
+    "descuento": 0.0,
+    "baseImponible": 5170.0,
+    "ivaPct": 21,
+    "iva": 1085.7,
+    "total": 6255.7
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": []
+  },
+  {
+   "id": "PR-2026-0415",
+   "fecha": "2026-10-01",
+   "validoHasta": "2026-10-31",
+   "estado": "enviado",
+   "cliente": {
+    "codigo": "C-02210",
+    "nombre": "C. P. Plaza de Ejemplo, 3 (comunidad ficticia)",
+    "tipo": "Comunidad de propietarios",
+    "contacto": "Administrador de fincas Demo",
+    "email": "administrador@comunidad-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Sustitución de ventanas en 24 viviendas, Plaza de Ejemplo, 3 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "resumen": "120 uds. · PVC abisagrada 70 mm",
+   "unidades": 120,
+   "importes": {
+    "bruto": 88200.0,
+    "descuentoPct": 8,
+    "descuento": 7056.0,
+    "baseImponible": 81144.0,
+    "ivaPct": 21,
+    "iva": 17040.24,
+    "total": 98184.24
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-10-01",
+     "destinatario": "administrador@comunidad-demo.example",
+     "asunto": "Presupuesto PR-2026-0415 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0412",
+   "fecha": "2026-09-29",
+   "validoHasta": "2026-10-29",
+   "estado": "enviado",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Residencial Las Encinas Demo, bloque B (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "resumen": "48 uds. · PVC abisagrada 84 mm, PVC corredera",
+   "unidades": 48,
+   "importes": {
+    "bruto": 31812.0,
+    "descuentoPct": 12,
+    "descuento": 3817.44,
+    "baseImponible": 27994.56,
+    "ivaPct": 21,
+    "iva": 5878.86,
+    "total": 33873.42
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-09-29",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Presupuesto PR-2026-0412 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0409",
+   "fecha": "2026-09-25",
+   "validoHasta": "2026-10-25",
+   "estado": "enviado",
+   "cliente": {
+    "codigo": "C-01987",
+    "nombre": "Estudio de Arquitectura Imaginario, S.L.P. (cliente ficticio)",
+    "tipo": "Estudio de arquitectura",
+    "contacto": "Dirección de obra",
+    "email": "proyectos@estudio-demo.example",
+    "localidad": "Aldea Simulada"
+   },
+   "obra": {
+    "nombre": "Vivienda unifamiliar Los Robles (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "resumen": "10 uds. · Aluminio minimalista, Aluminio abisagrada RPT",
+   "unidades": 10,
+   "importes": {
+    "bruto": 18990.0,
+    "descuentoPct": 5,
+    "descuento": 949.5,
+    "baseImponible": 18040.5,
+    "ivaPct": 21,
+    "iva": 3788.5,
+    "total": 21829.0
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-09-25",
+     "destinatario": "proyectos@estudio-demo.example",
+     "asunto": "Presupuesto PR-2026-0409 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0405",
+   "fecha": "2026-09-22",
+   "validoHasta": "2026-10-22",
+   "estado": "enviado",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Local comercial Avenida de Ejemplo (obra ficticia)",
+    "localidad": "Pueblo Demo"
+   },
+   "resumen": "2 uds. · Aluminio abisagrada RPT, Cierre enrollable de alta seguridad",
+   "unidades": 2,
+   "importes": {
+    "bruto": 4630.0,
+    "descuentoPct": 5,
+    "descuento": 231.5,
+    "baseImponible": 4398.5,
+    "ivaPct": 21,
+    "iva": 923.68,
+    "total": 5322.18
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-09-22",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Presupuesto PR-2026-0405 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0398",
+   "fecha": "2026-09-15",
+   "validoHasta": "2026-10-15",
+   "estado": "revision",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "resumen": "7 uds. · Motorización Somfy io, Mosquitera enrollable lateral doble",
+   "unidades": 7,
+   "importes": {
+    "bruto": 1530.0,
+    "descuentoPct": 0,
+    "descuento": 0.0,
+    "baseImponible": 1530.0,
+    "ivaPct": 21,
+    "iva": 321.3,
+    "total": 1851.3
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-09-15",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Presupuesto PR-2026-0398 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0392",
+   "fecha": "2026-09-10",
+   "validoHasta": "2026-10-10",
+   "estado": "rechazado",
+   "cliente": {
+    "codigo": "C-01760",
+    "nombre": "Instalaciones Hipotéticas, S.L. (cliente ficticio)",
+    "tipo": "Instalador",
+    "contacto": "Compras",
+    "email": "compras@instalador-demo.example",
+    "localidad": "Polígono Ficticio"
+   },
+   "obra": {
+    "nombre": "Suministro de ventanas sin instalación, lote 3 (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "resumen": "24 uds. · PVC corredera, PVC abisagrada 70 mm",
+   "unidades": 24,
+   "importes": {
+    "bruto": 8290.0,
+    "descuentoPct": 12,
+    "descuento": 994.8,
+    "baseImponible": 7295.2,
+    "ivaPct": 21,
+    "iva": 1531.99,
+    "total": 8827.19
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-09-10",
+     "destinatario": "compras@instalador-demo.example",
+     "asunto": "Presupuesto PR-2026-0392 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0381",
+   "fecha": "2026-08-25",
+   "validoHasta": "2026-09-24",
+   "estado": "aceptado",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "resumen": "8 uds. · Aluminio corredera RPT, Aluminio abisagrada RPT",
+   "unidades": 8,
+   "importes": {
+    "bruto": 9770.0,
+    "descuentoPct": 8,
+    "descuento": 781.6,
+    "baseImponible": 8988.4,
+    "ivaPct": 21,
+    "iva": 1887.56,
+    "total": 10875.96
+   },
+   "pedidoId": "PE-2026-0587",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-08-25",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Presupuesto PR-2026-0381 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0362",
+   "fecha": "2026-07-30",
+   "validoHasta": "2026-08-29",
+   "estado": "aceptado",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Oficinas Nave Imaginaria (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "resumen": "24 uds. · Muro cortina, Aluminio abisagrada RPT",
+   "unidades": 24,
+   "importes": {
+    "bruto": 30960.0,
+    "descuentoPct": 10,
+    "descuento": 3096.0,
+    "baseImponible": 27864.0,
+    "ivaPct": 21,
+    "iva": 5851.44,
+    "total": 33715.44
+   },
+   "pedidoId": "PE-2026-0561",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-07-30",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Presupuesto PR-2026-0362 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0355",
+   "fecha": "2026-07-20",
+   "validoHasta": "2026-08-19",
+   "estado": "aceptado",
+   "cliente": {
+    "codigo": "C-01542",
+    "nombre": "Construcciones Modelo Henares, S.L. (cliente ficticio)",
+    "tipo": "Constructora",
+    "contacto": "Dpto. de compras",
+    "email": "obras@constructora-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Nave y oficinas Polígono Supuesto (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "resumen": "32 uds. · Aluminio abisagrada RPT, Muro cortina",
+   "unidades": 32,
+   "importes": {
+    "bruto": 33660.0,
+    "descuentoPct": 10,
+    "descuento": 3366.0,
+    "baseImponible": 30294.0,
+    "ivaPct": 21,
+    "iva": 6361.74,
+    "total": 36655.74
+   },
+   "pedidoId": "PE-2026-0541",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-07-20",
+     "destinatario": "obras@constructora-demo.example",
+     "asunto": "Presupuesto PR-2026-0355 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0340",
+   "fecha": "2026-06-24",
+   "validoHasta": "2026-07-24",
+   "estado": "aceptado",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "resumen": "10 uds. · PVC abisagrada 70 mm, Mosquitera enrollable vertical",
+   "unidades": 10,
+   "importes": {
+    "bruto": 4002.0,
+    "descuentoPct": 8,
+    "descuento": 320.16,
+    "baseImponible": 3681.84,
+    "ivaPct": 21,
+    "iva": 773.19,
+    "total": 4455.03
+   },
+   "pedidoId": "PE-2026-0534",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-06-24",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Presupuesto PR-2026-0340 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0319",
+   "fecha": "2026-06-02",
+   "validoHasta": "2026-07-02",
+   "estado": "caducado",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "resumen": "10 uds. · PVC abisagrada 70 mm, Mosquitera enrollable vertical",
+   "unidades": 10,
+   "importes": {
+    "bruto": 4002.0,
+    "descuentoPct": 5,
+    "descuento": 200.1,
+    "baseImponible": 3801.9,
+    "ivaPct": 21,
+    "iva": 798.4,
+    "total": 4600.3
+   },
+   "pedidoId": null,
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-06-02",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Presupuesto PR-2026-0319 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "PR-2026-0287",
+   "fecha": "2026-04-21",
+   "validoHasta": "2026-05-21",
+   "estado": "aceptado",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "resumen": "7 uds. · Aluminio abisagrada RPT",
+   "unidades": 7,
+   "importes": {
+    "bruto": 6880.0,
+    "descuentoPct": 8,
+    "descuento": 550.4,
+    "baseImponible": 6329.6,
+    "ivaPct": 21,
+    "iva": 1329.22,
+    "total": 7658.82
+   },
+   "pedidoId": "PE-2026-0498",
+   "pdf": "/area-clientes/docs-demo/presupuesto-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-04-21",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Presupuesto PR-2026-0287 — Aluminios Seppala"
+    }
+   ]
+  }
+ ]
+}

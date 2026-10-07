@@ -11,9 +11,14 @@ el sistema de gestión de Seppala:
 | Fichero | Futuro endpoint (propuesta) | Contenido |
 |---|---|---|
 | `usuario.json` | `GET /api/v1/gestion/usuario` | Quién ha entrado (nombre, rol, correo) y datos de la empresa para el marco del panel |
+| `presupuestos.json` | `GET /api/v1/gestion/presupuestos` · `POST …/enviar` | Presupuestos de **todos** los clientes: cliente (código, nombre, contacto, correo), obra, resumen de partidas, unidades, importes, estado interno (`redactado` = sin enviar · `enviado` · `revision` · `aceptado` · `rechazado` · `caducado`), PDF y `envios` ya registrados (fecha, destinatario, asunto) |
+| `facturas.json` | `GET /api/v1/gestion/facturas` · `POST …/enviar` | Facturas de todos los clientes: cliente, obra, concepto, pedido, base, IVA, total, vencimiento, estado (`pendiente` · `pagada` · `vencida`), PDF y `envios` |
 
-Las siguientes entregas de la demo añaden aquí presupuestos y facturas (de varios clientes, con el registro de
-envíos por correo) y pedidos a proveedores.
+El cliente de ejemplo del área de clientes (C-02087) aparece aquí con sus mismos presupuestos y facturas (el
+generador los importa de `datos_demo.py`), para que las dos demos cuadren. Los envíos hechos desde el panel en una
+sesión se guardan en `sessionStorage` (`seppala-gestion-cambios`) y se suman a los `envios` del JSON; un presupuesto
+`redactado` con algún envío pasa a verse como `enviado`. Los PDF adjuntos son los de muestra de
+`/area-clientes/docs-demo/`. La siguiente entrega de la demo añade aquí los pedidos a proveedores.
 
 Convenciones: fechas ISO `AAAA-MM-DD`, importes numéricos en euros, estados como claves en minúsculas (el texto
 visible lo pone `gestion.js`). En `gestion.js`, la capa `api` es la única que conoce el origen de los datos: para

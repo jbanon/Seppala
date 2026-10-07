@@ -1,0 +1,317 @@
+{
+ "meta": {
+  "demo": true,
+  "aviso": "Datos ficticios",
+  "generado": "2026-10-07"
+ },
+ "datos": [
+  {
+   "id": "FV-2026-0673",
+   "fecha": "2026-10-06",
+   "vencimiento": "2026-11-05",
+   "cliente": {
+    "codigo": "C-01542",
+    "nombre": "Construcciones Modelo Henares, S.L. (cliente ficticio)",
+    "tipo": "Constructora",
+    "contacto": "Dpto. de compras",
+    "email": "obras@constructora-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Nave y oficinas Polígono Supuesto (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "concepto": "Trabajos adicionales: vierteaguas y remates",
+   "pedidoId": "PE-2026-0541",
+   "baseImponible": 2140.0,
+   "iva": 449.4,
+   "total": 2589.4,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pendiente",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": []
+  },
+  {
+   "id": "FV-2026-0672",
+   "fecha": "2026-10-03",
+   "vencimiento": "2026-11-02",
+   "cliente": {
+    "codigo": "C-01542",
+    "nombre": "Construcciones Modelo Henares, S.L. (cliente ficticio)",
+    "tipo": "Constructora",
+    "contacto": "Dpto. de compras",
+    "email": "obras@constructora-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Nave y oficinas Polígono Supuesto (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "concepto": "Certificación 3 (final de obra), 30 %",
+   "pedidoId": "PE-2026-0541",
+   "baseImponible": 9088.2,
+   "iva": 1908.52,
+   "total": 10996.72,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pendiente",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": []
+  },
+  {
+   "id": "FV-2026-0670",
+   "fecha": "2026-10-02",
+   "vencimiento": "2026-11-01",
+   "cliente": {
+    "codigo": "C-01760",
+    "nombre": "Instalaciones Hipotéticas, S.L. (cliente ficticio)",
+    "tipo": "Instalador",
+    "contacto": "Compras",
+    "email": "compras@instalador-demo.example",
+    "localidad": "Polígono Ficticio"
+   },
+   "obra": {
+    "nombre": "Suministro de ventanas sin instalación, lotes 1 y 2 (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "concepto": "Suministro lote 2",
+   "pedidoId": "PE-2026-0529",
+   "baseImponible": 7260.0,
+   "iva": 1524.6,
+   "total": 8784.6,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pendiente",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-10-02",
+     "destinatario": "compras@instalador-demo.example",
+     "asunto": "Factura FV-2026-0670 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "FV-2026-0665",
+   "fecha": "2026-09-26",
+   "vencimiento": "2026-10-26",
+   "cliente": {
+    "codigo": "C-01542",
+    "nombre": "Construcciones Modelo Henares, S.L. (cliente ficticio)",
+    "tipo": "Constructora",
+    "contacto": "Dpto. de compras",
+    "email": "obras@constructora-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Nave y oficinas Polígono Supuesto (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "concepto": "Certificación 2, 30 %",
+   "pedidoId": "PE-2026-0541",
+   "baseImponible": 9088.2,
+   "iva": 1908.52,
+   "total": 10996.72,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pendiente",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-09-26",
+     "destinatario": "obras@constructora-demo.example",
+     "asunto": "Factura FV-2026-0665 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "FV-2026-0661",
+   "fecha": "2026-09-22",
+   "vencimiento": "2026-10-22",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "concepto": "Anticipo 40 % a inicio de fabricación",
+   "pedidoId": "PE-2026-0587",
+   "baseImponible": 3595.36,
+   "iva": 755.03,
+   "total": 4350.39,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pendiente",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-09-22",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Factura FV-2026-0661 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "FV-2026-0652",
+   "fecha": "2026-08-25",
+   "vencimiento": "2026-09-24",
+   "cliente": {
+    "codigo": "C-01987",
+    "nombre": "Estudio de Arquitectura Imaginario, S.L.P. (cliente ficticio)",
+    "tipo": "Estudio de arquitectura",
+    "contacto": "Dirección de obra",
+    "email": "proyectos@estudio-demo.example",
+    "localidad": "Aldea Simulada"
+   },
+   "obra": {
+    "nombre": "Rehabilitación de fachada C/ Supuesta, 22 (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "concepto": "Liquidación de obra",
+   "pedidoId": "PE-2026-0503",
+   "baseImponible": 9870.0,
+   "iva": 2072.7,
+   "total": 11942.7,
+   "formaPago": "Transferencia 30 días",
+   "estado": "vencida",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-08-25",
+     "destinatario": "proyectos@estudio-demo.example",
+     "asunto": "Factura FV-2026-0652 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "FV-2026-0640",
+   "fecha": "2026-08-28",
+   "vencimiento": "2026-09-27",
+   "cliente": {
+    "codigo": "C-01542",
+    "nombre": "Construcciones Modelo Henares, S.L. (cliente ficticio)",
+    "tipo": "Constructora",
+    "contacto": "Dpto. de compras",
+    "email": "obras@constructora-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Nave y oficinas Polígono Supuesto (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "concepto": "Certificación 1, 40 %",
+   "pedidoId": "PE-2026-0541",
+   "baseImponible": 12117.6,
+   "iva": 2544.7,
+   "total": 14662.3,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pagada",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-08-28",
+     "destinatario": "obras@constructora-demo.example",
+     "asunto": "Factura FV-2026-0640 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "FV-2026-0633",
+   "fecha": "2026-08-20",
+   "vencimiento": "2026-09-19",
+   "cliente": {
+    "codigo": "C-01760",
+    "nombre": "Instalaciones Hipotéticas, S.L. (cliente ficticio)",
+    "tipo": "Instalador",
+    "contacto": "Compras",
+    "email": "compras@instalador-demo.example",
+    "localidad": "Polígono Ficticio"
+   },
+   "obra": {
+    "nombre": "Suministro de ventanas sin instalación, lotes 1 y 2 (obra ficticia)",
+    "localidad": "Polígono Ficticio"
+   },
+   "concepto": "Suministro lote 1",
+   "pedidoId": "PE-2026-0529",
+   "baseImponible": 6980.0,
+   "iva": 1465.8,
+   "total": 8445.8,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pagada",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-08-20",
+     "destinatario": "compras@instalador-demo.example",
+     "asunto": "Factura FV-2026-0633 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "FV-2026-0598",
+   "fecha": "2026-07-23",
+   "vencimiento": "2026-08-22",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Reforma vivienda C/ Inventada, 12 (obra ficticia)",
+    "localidad": "Villaejemplo"
+   },
+   "concepto": "Instalación completa",
+   "pedidoId": "PE-2026-0534",
+   "baseImponible": 3681.84,
+   "iva": 773.19,
+   "total": 4455.03,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pagada",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-07-23",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Factura FV-2026-0598 — Aluminios Seppala"
+    }
+   ]
+  },
+  {
+   "id": "FV-2026-0512",
+   "fecha": "2026-06-02",
+   "vencimiento": "2026-07-02",
+   "cliente": {
+    "codigo": "C-02087",
+    "nombre": "Reformas Ejemplo Alcalá, S.L. (cliente ficticio)",
+    "tipo": "Empresa de reformas",
+    "contacto": "Usuario Demo",
+    "email": "usuario@cliente-demo.example",
+    "localidad": "Villaejemplo"
+   },
+   "obra": {
+    "nombre": "Chalet Los Cerros de Prueba (obra ficticia)",
+    "localidad": "Aldea Simulada"
+   },
+   "concepto": "Instalación completa",
+   "pedidoId": "PE-2026-0498",
+   "baseImponible": 6329.6,
+   "iva": 1329.22,
+   "total": 7658.82,
+   "formaPago": "Transferencia 30 días",
+   "estado": "pagada",
+   "pdf": "/area-clientes/docs-demo/factura-demo.pdf",
+   "envios": [
+    {
+     "fecha": "2026-06-02",
+     "destinatario": "usuario@cliente-demo.example",
+     "asunto": "Factura FV-2026-0512 — Aluminios Seppala"
+    }
+   ]
+  }
+ ]
+}
